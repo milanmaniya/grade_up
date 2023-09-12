@@ -1,6 +1,10 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_phone_field.dart';
+import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:grade_up/screen/otp_text_field_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
@@ -13,6 +17,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _controller = TextEditingController();
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,14 +74,33 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: context.screenHeight * 0.02,
               ),
               commonPhoneField(
+                controller: _controller,
                 context: context,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const OtpTextFieldScreen(),
-                    ),
+                onTap: () async {
+                  await _auth.verifyPhoneNumber(
+                    phoneNumber: _controller.text,
+                    codeAutoRetrievalTimeout: (verificationId) {},
+                    codeSent: (verificationId, forceResendingToken) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => OtpTextFieldScreen(
+                            verificationId: verificationId,
+                          ),
+                        ),
+                      );
+                    },
+                    verificationFailed: (error) {
+                      CommonToast().showMessage(message: error.toString());
+                    },
+                    verificationCompleted: (phoneAuthCredential) {
+                      CommonToast().showMessage(
+                          message: 'Verification complete successfully');
+                    },
+                    timeout: const Duration(seconds: 30),
                   );
+
+                  log(_controller.text);
                 },
               ),
             ],

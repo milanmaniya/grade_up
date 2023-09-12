@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
+import 'package:grade_up/screen/login_screen.dart';
 
 class WelcomeScreenPage extends StatefulWidget {
   const WelcomeScreenPage({super.key});
@@ -63,12 +64,19 @@ class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginScreen(),
+                    ),
+                  );
+                },
                 child: Text(
-                  "Verify",
+                  "Login",
                   style: GoogleFonts.lato(
                     color: Colors.blue,
-                    fontSize: 15,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

@@ -7,6 +7,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 
 Widget commonPhoneField({
   required BuildContext context,
+  required TextEditingController controller,
   required Function()? onTap,
 }) =>
     Card(
@@ -31,6 +32,7 @@ Widget commonPhoneField({
             mainAxisSize: MainAxisSize.min,
             children: [
               IntlPhoneField(
+                controller: controller,
                 decoration: const InputDecoration(border: OutlineInputBorder()),
                 initialCountryCode: 'IN',
                 keyboardType: TextInputType.number,

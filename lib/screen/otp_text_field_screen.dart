@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_value.dart';
@@ -7,13 +8,17 @@ import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
 
 class OtpTextFieldScreen extends StatefulWidget {
-  const OtpTextFieldScreen({super.key});
+  const OtpTextFieldScreen({super.key, required this.verificationId});
+
+  final String verificationId;
 
   @override
   State<OtpTextFieldScreen> createState() => _OtpTextFieldScreenState();
 }
 
 class _OtpTextFieldScreenState extends State<OtpTextFieldScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,7 +122,13 @@ class _OtpTextFieldScreenState extends State<OtpTextFieldScreen> {
                     ),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  AuthCredential credential = PhoneAuthProvider.credential(
+                    verificationId: widget.verificationId,
+                    smsCode: CommonValue.otpController.toString(),
+                  );
+                  _auth.signInWithCredential(credential);
+                },
                 child: Text(
                   "Verify",
                   style: GoogleFonts.lato(
