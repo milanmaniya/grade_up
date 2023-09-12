@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 context: context,
                 onTap: () async {
                   await _auth.verifyPhoneNumber(
-                    phoneNumber: _controller.text,
+                    phoneNumber: '+91${_controller.text}',
                     codeAutoRetrievalTimeout: (verificationId) {},
                     codeSent: (verificationId, forceResendingToken) {
                       Navigator.push(
