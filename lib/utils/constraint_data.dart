@@ -4,7 +4,7 @@ class ConstraintData {
   //color
 
   //app bar background color
-  static final Color bgAppBarColor = Colors.cyan.shade50;
+  static final Color bgAppBarColor = Colors.blue.shade100;
 
   //scaffold backgroundColor
   static const Color bgColor = Colors.white;

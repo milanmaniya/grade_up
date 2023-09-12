@@ -6,7 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_phone_field.dart';
 import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
-import 'package:grade_up/screen/otp_text_field_screen.dart';
+import 'package:grade_up/screen/sign_up_screen/otp_text_field_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
 class LoginScreen extends StatefulWidget {

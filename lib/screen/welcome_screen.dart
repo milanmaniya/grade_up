@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
-import 'package:grade_up/screen/login_screen.dart';
+import 'package:grade_up/screen/login_screen/login_screen.dart';
 
 class WelcomeScreenPage extends StatefulWidget {
   const WelcomeScreenPage({super.key});
