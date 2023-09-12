@@ -91,15 +91,12 @@ class _OtpTextFieldScreenState extends State<OtpTextFieldScreen> {
                       fontWeight: FontWeight.w800,
                     ),
                   ),
-                  const SizedBox(
-                    width: 4,
-                  ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
                       ConstraintData.otpResend,
                       style: GoogleFonts.lato(
-                        color: Colors.blue,
+                        color: Colors.redAccent,
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
@@ -116,7 +113,7 @@ class _OtpTextFieldScreenState extends State<OtpTextFieldScreen> {
                   minimumSize: MaterialStateProperty.all(
                     Size(
                       context.screenWidth * 0.9,
-                      context.screenHeight * 0.60,
+                      context.screenHeight * 0.060,
                     ),
                   ),
                 ),
@@ -124,7 +121,7 @@ class _OtpTextFieldScreenState extends State<OtpTextFieldScreen> {
                 child: Text(
                   "Verify",
                   style: GoogleFonts.lato(
-                    color: Colors.redAccent,
+                    color: Colors.blue,
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:grade_up/screen/login_screen.dart';
-import 'package:grade_up/screen/sign_up_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:grade_up/extension/media_query_extension.dart';
 
 class WelcomeScreenPage extends StatefulWidget {
   const WelcomeScreenPage({super.key});
@@ -53,58 +53,25 @@ class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
                   ),
                 ),
               ),
-              Column(
-                children: <Widget>[
-                  // the login button
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
-                        ),
-                      );
-                    },
-                    // defining the shape
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: const Text(
-                      "Login",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+              ElevatedButton(
+                style: ButtonStyle(
+                  elevation: MaterialStateProperty.all(7),
+                  minimumSize: MaterialStateProperty.all(
+                    Size(
+                      context.screenWidth * 0.9,
+                      context.screenHeight * 0.060,
                     ),
                   ),
-                  // creating the signup button
-                  const SizedBox(height: 20),
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SignUpScreen(),
-                        ),
-                      );
-                    },
-                    color: const Color(0xff0095FF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: const Text(
-                      "Sign up",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 18,
-                      ),
-                    ),
+                ),
+                onPressed: () {},
+                child: Text(
+                  "Verify",
+                  style: GoogleFonts.lato(
+                    color: Colors.blue,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
+                ),
               ),
             ],
           ),
