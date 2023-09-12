@@ -20,29 +20,7 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
             buttonName: 'See More',
             fun: () {},
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              commonCourseCard(
-                subjectName: 'General Math',
-                totalClass: '8',
-                totalLeacture: '4',
-                icon: Icons.favorite,
-                fun: () {},
-                context: context,
-                imageUrl: 'assets/general_math.jpg',
-              ),
-              commonCourseCard(
-                subjectName: 'General Math',
-                totalClass: '8',
-                totalLeacture: '4',
-                icon: Icons.favorite,
-                fun: () {},
-                context: context,
-                imageUrl: 'assets/physics.jpg',
-              ),
-            ],
-          ),
+          
         ],
       ),
     );
