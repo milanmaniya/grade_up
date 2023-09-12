@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
+import 'package:grade_up/screen/tab_bar_screen/online_courses_screen/online_course_screen.dart';
+import 'package:grade_up/screen/tab_bar_screen/tuition_screen/tuition_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -78,8 +80,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               child: TabBarView(
                 controller: _tabController,
                 children: const [
-                  Text('Tuition'),
-                  Text('Online Courses'),
+                  TuitionScreen(),
+                  OnlineCourseScreen(),
                 ],
               ),
             ),

@@ -6,27 +6,30 @@ commonCourseTag({
   required String buttonName,
   required VoidCallback fun,
 }) =>
-    Row(
-      children: [
-        Text(
-          tagName,
-          style: GoogleFonts.lato(
-            color: Colors.black,
-            fontSize: 23,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const Spacer(),
-        TextButton(
-          onPressed: fun,
-          child: Text(
-            buttonName,
+    Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        children: [
+          Text(
+            tagName,
             style: GoogleFonts.lato(
-              color: Colors.blue,
-              fontSize: 18,
+              color: Colors.black,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
             ),
           ),
-        ),
-      ],
+          const Spacer(),
+          TextButton(
+            onPressed: fun,
+            child: Text(
+              buttonName,
+              style: GoogleFonts.lato(
+                color: Colors.blue,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
