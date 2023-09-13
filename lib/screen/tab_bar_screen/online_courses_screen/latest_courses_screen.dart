@@ -1,34 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_course_card.dart';
-import 'package:grade_up/common_widget/common_course_tag.dart';
-import 'package:grade_up/screen/tab_bar_screen/online_courses_screen/latest_courses_screen.dart';
+import 'package:grade_up/utils/constraint_data.dart';
 
-class OnlineCourseScreen extends StatefulWidget {
-  const OnlineCourseScreen({super.key});
+class LatestCourseScreen extends StatefulWidget {
+  const LatestCourseScreen({super.key});
 
   @override
-  State<OnlineCourseScreen> createState() => _OnlineCourseScreenState();
+  State<LatestCourseScreen> createState() => _LatestCourseScreenState();
 }
 
-class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
+class _LatestCourseScreenState extends State<LatestCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      backgroundColor: ConstraintData.bgColor,
+      appBar: AppBar(
+        bottom: commonSecondAppBar(
+          context: context,
+          prefixIcon: Icons.arrow_back,
+          fun1: () {
+            Navigator.pop(context);
+          },
+          fun2: () {},
+          tagName: 'Latest Courses',
+          actionFirstIcon: Icons.notifications,
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            commonCourseTag(
-              tagName: 'Latest Courses',
-              buttonName: 'See More',
-              fun: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LatestCourseScreen(),
-                  ),
-                );
-              },
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -52,11 +55,6 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 ),
               ],
             ),
-            commonCourseTag(
-              tagName: 'Best Seller Courses',
-              buttonName: 'See More',
-              fun: () {},
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -79,11 +77,6 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                   context: context,
                 ),
               ],
-            ),
-            commonCourseTag(
-              tagName: 'Most Popular Courses',
-              buttonName: 'See More',
-              fun: () {},
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
