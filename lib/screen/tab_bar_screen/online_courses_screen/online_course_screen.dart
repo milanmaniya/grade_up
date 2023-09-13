@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:grade_up/common_widget/common_course_card.dart';
 import 'package:grade_up/common_widget/common_course_tag.dart';
 
 class OnlineCourseScreen extends StatefulWidget {
