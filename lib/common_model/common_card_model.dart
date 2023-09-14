@@ -9,13 +9,11 @@ String commonCardModelToJson(CommonCardModel data) =>
 class CommonCardModel {
   String image;
   String subject;
-  String totalclass;
   String totalleacture;
 
   CommonCardModel({
     required this.image,
     required this.subject,
-    required this.totalclass,
     required this.totalleacture,
   });
 
@@ -23,14 +21,12 @@ class CommonCardModel {
       CommonCardModel(
         image: json["image"],
         subject: json["subject"],
-        totalclass: json["totalclass"],
         totalleacture: json["totalleacture"],
       );
 
   Map<String, dynamic> toJson() => {
         "image": image,
         "subject": subject,
-        "totalclass": totalclass,
         "totalleacture": totalleacture,
       };
 }
@@ -39,37 +35,31 @@ List<CommonCardModel> courseCardList = [
   CommonCardModel(
     image: 'assets/digital_marketing.jpg',
     subject: 'Digital Marketing',
-    totalleacture: '5',
-    totalclass: '9-10',
+    totalleacture: '12',
   ),
   CommonCardModel(
     image: 'assets/graphics_design.jpg',
-    subject: 'Graphics Designing',
-    totalleacture: '5',
-    totalclass: '9-10',
+    subject: 'Graphics Design',
+    totalleacture: '15',
   ),
   CommonCardModel(
     image: 'assets/c.jpg',
     subject: 'C Language',
-    totalleacture: '5',
-    totalclass: '9-10',
+    totalleacture: '40',
   ),
   CommonCardModel(
     image: 'assets/c++.jpg',
     subject: 'C++ Language',
-    totalleacture: '5',
-    totalclass: '9-10',
+    totalleacture: '40',
   ),
   CommonCardModel(
     image: 'assets/web_design.jpg',
     subject: 'Web Designing',
-    totalleacture: '5',
-    totalclass: '9-10',
+    totalleacture: '22',
   ),
   CommonCardModel(
     image: 'assets/python.jpg',
-    subject: 'Python',
-    totalleacture: '5',
-    totalclass: '9-10',
+    subject: 'Python Language',
+    totalleacture: '35',
   ),
 ];

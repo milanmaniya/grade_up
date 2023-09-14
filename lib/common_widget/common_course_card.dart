@@ -27,10 +27,10 @@ commonCourseCard({
             ),
             Padding(
               padding: const EdgeInsets.only(
-                left: 12,
+                left: 5,
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
                     subjectName,
@@ -60,19 +60,15 @@ commonCourseCard({
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                left: 12,
-                right: 18,
-              ),
+              padding: const EdgeInsets.only(left: 5),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    totalLeacture,
+                    'Total Leacture: $totalLeacture',
                     style: GoogleFonts.lato(
                       color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
                     ),
                   ),
                 ],
