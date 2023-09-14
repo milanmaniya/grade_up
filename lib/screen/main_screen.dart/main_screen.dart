@@ -28,9 +28,17 @@ class _MainScreenState extends State<MainScreen> {
       extendBody: true,
       body: screenList[_selectedIndex],
       bottomNavigationBar: AnimatedBottomNavigationBar(
+        iconSize: 26,
+        
+        activeColor: Colors.white,
         backgroundColor: Colors.blue,
         gapLocation: GapLocation.none,
-        icons: const [Icons.home, Icons.message, Icons.favorite, Icons.people],
+        icons: const [
+          Icons.home,
+          Icons.message,
+          Icons.favorite,
+          Icons.person_pin_outlined
+        ],
         activeIndex: _selectedIndex,
         leftCornerRadius: 20,
         rightCornerRadius: 20,

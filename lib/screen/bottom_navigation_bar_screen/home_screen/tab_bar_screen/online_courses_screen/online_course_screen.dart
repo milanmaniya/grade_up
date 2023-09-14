@@ -49,7 +49,7 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 imageUrl: courseCardList[0].image,
                 subjectName: courseCardList[0].subject,
                 totalLeacture: courseCardList[0].totalleacture,
-                totalClass: courseCardList[0].totalclass,
+               
                 icon: Icons.favorite,
                 context: context,
               ),
@@ -63,10 +63,10 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                   }
                   setState(() {});
                 },
-                imageUrl: courseCardList[0].image,
-                subjectName: courseCardList[0].subject,
-                totalLeacture: courseCardList[0].totalleacture,
-                totalClass: courseCardList[0].totalclass,
+                imageUrl: courseCardList[1].image,
+                subjectName: courseCardList[1].subject,
+                totalLeacture: courseCardList[1].totalleacture,
+               
                 icon: Icons.favorite,
                 context: context,
               ),
@@ -90,10 +90,10 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                   }
                   setState(() {});
                 },
-                imageUrl: courseCardList[0].image,
-                subjectName: courseCardList[0].subject,
-                totalLeacture: courseCardList[0].totalleacture,
-                totalClass: courseCardList[0].totalclass,
+                imageUrl: courseCardList[2].image,
+                subjectName: courseCardList[2].subject,
+                totalLeacture: courseCardList[2].totalleacture,
+               
                 icon: Icons.favorite,
                 context: context,
               ),
@@ -107,10 +107,10 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                   }
                   setState(() {});
                 },
-                imageUrl: courseCardList[0].image,
-                subjectName: courseCardList[0].subject,
-                totalLeacture: courseCardList[0].totalleacture,
-                totalClass: courseCardList[0].totalclass,
+                imageUrl: courseCardList[3].image,
+                subjectName: courseCardList[3].subject,
+                totalLeacture: courseCardList[3].totalleacture,
+               
                 icon: Icons.favorite,
                 context: context,
               ),
@@ -134,10 +134,10 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                   }
                   setState(() {});
                 },
-                imageUrl: courseCardList[0].image,
-                subjectName: courseCardList[0].subject,
-                totalLeacture: courseCardList[0].totalleacture,
-                totalClass: courseCardList[0].totalclass,
+                imageUrl: courseCardList[4].image,
+                subjectName: courseCardList[4].subject,
+                totalLeacture: courseCardList[4].totalleacture,
+               
                 icon: Icons.favorite,
                 context: context,
               ),
@@ -151,10 +151,10 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                   }
                   setState(() {});
                 },
-                imageUrl: courseCardList[0].image,
-                subjectName: courseCardList[0].subject,
-                totalLeacture: courseCardList[0].totalleacture,
-                totalClass: courseCardList[0].totalclass,
+                imageUrl: courseCardList[5].image,
+                subjectName: courseCardList[5].subject,
+                totalLeacture: courseCardList[5].totalleacture,
+                
                 icon: Icons.favorite,
                 context: context,
               ),

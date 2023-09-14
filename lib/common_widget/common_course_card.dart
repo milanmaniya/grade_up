@@ -7,7 +7,6 @@ commonCourseCard({
   required String imageUrl,
   required String subjectName,
   required String totalLeacture,
-  required String totalClass,
   required IconData icon,
   required BuildContext context,
 }) =>
@@ -66,16 +65,8 @@ commonCourseCard({
                 right: 18,
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    totalClass,
-                    style: GoogleFonts.lato(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
                   Text(
                     totalLeacture,
                     style: GoogleFonts.lato(

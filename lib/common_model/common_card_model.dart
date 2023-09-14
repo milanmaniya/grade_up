@@ -11,7 +11,7 @@ class CommonCardModel {
   String subject;
   String totalclass;
   String totalleacture;
-  
+
   CommonCardModel({
     required this.image,
     required this.subject,
@@ -37,38 +37,38 @@ class CommonCardModel {
 
 List<CommonCardModel> courseCardList = [
   CommonCardModel(
-    image: 'assets/general_math.jpg',
-    subject: 'General Math',
+    image: 'assets/digital_marketing.jpg',
+    subject: 'Digital Marketing',
     totalleacture: '5',
     totalclass: '9-10',
   ),
   CommonCardModel(
-    image: 'assets/general_math.jpg',
-    subject: 'General Math',
+    image: 'assets/graphics_design.jpg',
+    subject: 'Graphics Designing',
     totalleacture: '5',
     totalclass: '9-10',
   ),
   CommonCardModel(
-    image: 'assets/general_math.jpg',
-    subject: 'General Math',
+    image: 'assets/c.jpg',
+    subject: 'C Language',
     totalleacture: '5',
     totalclass: '9-10',
   ),
   CommonCardModel(
-    image: 'assets/general_math.jpg',
-    subject: 'General Math',
+    image: 'assets/c++.jpg',
+    subject: 'C++ Language',
     totalleacture: '5',
     totalclass: '9-10',
   ),
   CommonCardModel(
-    image: 'assets/general_math.jpg',
-    subject: 'General Math',
+    image: 'assets/web_design.jpg',
+    subject: 'Web Designing',
     totalleacture: '5',
     totalclass: '9-10',
   ),
   CommonCardModel(
-    image: 'assets/general_math.jpg',
-    subject: 'General Math',
+    image: 'assets/python.jpg',
+    subject: 'Python',
     totalleacture: '5',
     totalclass: '9-10',
   ),

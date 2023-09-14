@@ -50,7 +50,6 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
               imageUrl: courseCardList[index].image,
               subjectName: courseCardList[index].subject,
               totalLeacture: courseCardList[index].totalleacture,
-              totalClass: courseCardList[index].totalclass,
               icon: Icons.favorite,
               context: context,
             ),
