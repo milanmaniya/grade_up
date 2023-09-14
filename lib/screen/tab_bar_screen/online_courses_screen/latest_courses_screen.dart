@@ -28,13 +28,14 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
           actionFirstIcon: Icons.notifications,
         ),
       ),
-      body: Wrap(
-         alignment: WrapAlignment.center,
-
-        children: [
-          ListView.builder(
-            itemCount: courseCardList.length,
-            itemBuilder: (context, index) => commonCourseCard(
+      body: Align(
+        alignment: Alignment.topCenter,
+        child: Wrap(
+          runSpacing: 10,
+          spacing: 5,
+          children: List.generate(
+            courseCardList.length,
+            (index) => commonCourseCard(
               imageUrl: courseCardList[index].image,
               subjectName: courseCardList[index].subject,
               totalLeacture: courseCardList[index].totalleacture,
@@ -44,7 +45,7 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
               context: context,
             ),
           ),
-        ],
+        ),
       ),
     );
   }

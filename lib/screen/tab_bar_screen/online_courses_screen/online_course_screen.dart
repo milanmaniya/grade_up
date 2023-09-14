@@ -14,103 +14,105 @@ class OnlineCourseScreen extends StatefulWidget {
 class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            commonCourseTag(
-              tagName: 'Latest Courses',
-              buttonName: 'See More',
-              fun: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LatestCourseScreen(),
-                  ),
-                );
-              },
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                commonCourseCard(
-                  imageUrl: courseCardList[0].image,
-                  subjectName: courseCardList[0].subject,
-                  totalLeacture: courseCardList[0].totalleacture,
-                  totalClass: courseCardList[0].totalclass,
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          
+          commonCourseTag(
+            tagName: 'Latest Courses',
+            buttonName: 'See More',
+            fun: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LatestCourseScreen(),
                 ),
-                commonCourseCard(
-                  imageUrl: courseCardList[0].image,
-                  subjectName: courseCardList[0].subject,
-                  totalLeacture: courseCardList[0].totalleacture,
-                  totalClass: courseCardList[0].totalclass,
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-              ],
-            ),
-            commonCourseTag(
-              tagName: 'Best Seller Courses',
-              buttonName: 'See More',
-              fun: () {},
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                 commonCourseCard(
-                  imageUrl: courseCardList[0].image,
-                  subjectName: courseCardList[0].subject,
-                  totalLeacture: courseCardList[0].totalleacture,
-                  totalClass: courseCardList[0].totalclass,
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-                commonCourseCard(
-                  imageUrl: courseCardList[0].image,
-                  subjectName: courseCardList[0].subject,
-                  totalLeacture: courseCardList[0].totalleacture,
-                  totalClass: courseCardList[0].totalclass,
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-              ],
-            ),
-            commonCourseTag(
-              tagName: 'Most Popular Courses',
-              buttonName: 'See More',
-              fun: () {},
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                commonCourseCard(
-                  imageUrl: courseCardList[0].image,
-                  subjectName: courseCardList[0].subject,
-                  totalLeacture: courseCardList[0].totalleacture,
-                  totalClass: courseCardList[0].totalclass,
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-                commonCourseCard(
-                  imageUrl: courseCardList[0].image,
-                  subjectName: courseCardList[0].subject,
-                  totalLeacture: courseCardList[0].totalleacture,
-                  totalClass: courseCardList[0].totalclass,
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-              ],
-            ),
-          ],
-        ),
+              );
+            },
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              commonCourseCard(
+                imageUrl: courseCardList[0].image,
+                subjectName: courseCardList[0].subject,
+                totalLeacture: courseCardList[0].totalleacture,
+                totalClass: courseCardList[0].totalclass,
+                fun: () {},
+                icon: Icons.favorite,
+                context: context,
+              ),
+              commonCourseCard(
+                imageUrl: courseCardList[0].image,
+                subjectName: courseCardList[0].subject,
+                totalLeacture: courseCardList[0].totalleacture,
+                totalClass: courseCardList[0].totalclass,
+                fun: () {},
+                icon: Icons.favorite,
+                context: context,
+              ),
+            ],
+          ),
+          commonCourseTag(
+            tagName: 'Best Seller Courses',
+            buttonName: 'See More',
+            fun: () {},
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              commonCourseCard(
+                imageUrl: courseCardList[0].image,
+                subjectName: courseCardList[0].subject,
+                totalLeacture: courseCardList[0].totalleacture,
+                totalClass: courseCardList[0].totalclass,
+                fun: () {},
+                icon: Icons.favorite,
+                context: context,
+              ),
+              commonCourseCard(
+                imageUrl: courseCardList[0].image,
+                subjectName: courseCardList[0].subject,
+                totalLeacture: courseCardList[0].totalleacture,
+                totalClass: courseCardList[0].totalclass,
+                fun: () {},
+                icon: Icons.favorite,
+                context: context,
+              ),
+            ],
+          ),
+          commonCourseTag(
+            tagName: 'Most Popular Courses',
+            buttonName: 'See More',
+            fun: () {},
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              commonCourseCard(
+                imageUrl: courseCardList[0].image,
+                subjectName: courseCardList[0].subject,
+                totalLeacture: courseCardList[0].totalleacture,
+                totalClass: courseCardList[0].totalclass,
+                fun: () {},
+                icon: Icons.favorite,
+                context: context,
+              ),
+              commonCourseCard(
+                imageUrl: courseCardList[0].image,
+                subjectName: courseCardList[0].subject,
+                totalLeacture: courseCardList[0].totalleacture,
+                totalClass: courseCardList[0].totalclass,
+                fun: () {},
+                icon: Icons.favorite,
+                context: context,
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+        ],
       ),
     );
   }

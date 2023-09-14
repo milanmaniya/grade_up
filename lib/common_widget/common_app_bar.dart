@@ -5,9 +5,9 @@ import 'package:grade_up/extension/media_query_extension.dart';
 commonAppBar({
   required BuildContext context,
   required IconData prefixIcon,
-  required VoidCallback fun1,
-  required VoidCallback fun2,
-  required VoidCallback fun3,
+   VoidCallback? fun1,
+   VoidCallback? fun2,
+   VoidCallback? fun3,
   required String tagName,
   required IconData actionFirstIcon,
   required IconData actionSecondIcon,

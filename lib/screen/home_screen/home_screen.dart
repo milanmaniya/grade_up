@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/screen/tab_bar_screen/online_courses_screen/online_course_screen.dart';
@@ -22,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    var _bottomNavIndex = 0;
     return Scaffold(
+      extendBody: true,
       backgroundColor: ConstraintData.bgColor,
       appBar: AppBar(
         bottom: commonAppBar(
@@ -30,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           prefixIcon: Icons.menu_open_rounded,
           fun1: () {},
           fun2: () {},
-          fun3: () {},
           tagName: 'Menu',
           actionFirstIcon: Icons.search,
           actionSecondIcon: Icons.notifications,
@@ -43,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           children: [
             Container(
               decoration: BoxDecoration(
+                
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(20),
               ),
@@ -76,6 +79,9 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ],
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             Expanded(
               child: TabBarView(
                 controller: _tabController,
@@ -88,7 +94,50 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           ],
         ),
       ),
-      
+      // bottomNavigationBar: Container(
+      //   decoration: const BoxDecoration(
+      //     borderRadius: BorderRadius.only(
+      //       topLeft: Radius.circular(10),
+      //       topRight: Radius.circular(10),
+      //     ),
+      //   ),
+      //   child: BottomNavigationBar(
+      //     elevation: 5,
+      //     items: const [
+      //       BottomNavigationBarItem(
+      //         backgroundColor: Colors.blue,
+      //         icon: Icon(Icons.home),
+      //         label: 'Home',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         backgroundColor: Colors.blue,
+      //         icon: Icon(Icons.message_rounded),
+      //         label: 'Message',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         backgroundColor: Colors.blue,
+      //         icon: Icon(Icons.favorite_outline_rounded),
+      //         label: 'Favourite',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         backgroundColor: Colors.blue,
+      //         icon: Icon(Icons.person_pin_outlined),
+      //         label: 'Account',
+      //       ),
+      //     ],
+      //   ),
+
+      bottomNavigationBar: AnimatedBottomNavigationBar(
+        backgroundColor: Colors.blue,
+
+        gapLocation: GapLocation.none,
+        icons: const [Icons.home, Icons.message, Icons.favorite, Icons.people],
+        activeIndex: _bottomNavIndex,
+        leftCornerRadius: 20,
+        rightCornerRadius: 20,
+        onTap: (index) => setState(() => _bottomNavIndex = index),
+        //other params
+      ),
     );
   }
 }
