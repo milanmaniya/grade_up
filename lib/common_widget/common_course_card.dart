@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 commonCourseCard({
+  bool isFavourite = false,
+  VoidCallback? fun,
   required String imageUrl,
   required String subjectName,
   required String totalLeacture,
   required String totalClass,
-  required VoidCallback fun,
   required IconData icon,
   required BuildContext context,
 }) =>
@@ -43,12 +44,16 @@ commonCourseCard({
                   IconButton(
                     onPressed: fun,
                     icon: CircleAvatar(
-                      backgroundColor: Colors.grey.shade100,
+                      backgroundColor: isFavourite == true
+                          ? Colors.red.shade100
+                          : Colors.grey.shade100,
                       radius: 12,
                       child: Icon(
                         icon,
                         size: 12,
-                        color: Colors.black,
+                        color: isFavourite == true
+                            ? Colors.red.shade400
+                            : Colors.black,
                       ),
                     ),
                   ),

@@ -40,7 +40,6 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
               subjectName: courseCardList[index].subject,
               totalLeacture: courseCardList[index].totalleacture,
               totalClass: courseCardList[index].totalclass,
-              fun: () {},
               icon: Icons.favorite,
               context: context,
             ),
