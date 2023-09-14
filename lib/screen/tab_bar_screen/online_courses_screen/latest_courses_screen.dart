@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_course_card.dart';
 import 'package:grade_up/utils/constraint_data.dart';
@@ -27,82 +28,23 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
           actionFirstIcon: Icons.notifications,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                commonCourseCard(
-                  imageUrl: 'assets/general_math.jpg',
-                  subjectName: 'General Math',
-                  totalLeacture: '5',
-                  totalClass: '9-10',
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-                commonCourseCard(
-                  imageUrl: 'assets/general_math.jpg',
-                  subjectName: 'General Math',
-                  totalLeacture: '5',
-                  totalClass: '9-10',
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-              ],
+      body: Wrap(
+         alignment: WrapAlignment.center,
+
+        children: [
+          ListView.builder(
+            itemCount: courseCardList.length,
+            itemBuilder: (context, index) => commonCourseCard(
+              imageUrl: courseCardList[index].image,
+              subjectName: courseCardList[index].subject,
+              totalLeacture: courseCardList[index].totalleacture,
+              totalClass: courseCardList[index].totalclass,
+              fun: () {},
+              icon: Icons.favorite,
+              context: context,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                commonCourseCard(
-                  imageUrl: 'assets/general_math.jpg',
-                  subjectName: 'General Math',
-                  totalLeacture: '5',
-                  totalClass: '9-10',
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-                commonCourseCard(
-                  imageUrl: 'assets/general_math.jpg',
-                  subjectName: 'General Math',
-                  totalLeacture: '5',
-                  totalClass: '9-10',
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                commonCourseCard(
-                  imageUrl: 'assets/general_math.jpg',
-                  subjectName: 'General Math',
-                  totalLeacture: '5',
-                  totalClass: '9-10',
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-                commonCourseCard(
-                  imageUrl: 'assets/general_math.jpg',
-                  subjectName: 'General Math',
-                  totalLeacture: '5',
-                  totalClass: '9-10',
-                  fun: () {},
-                  icon: Icons.favorite,
-                  context: context,
-                ),
-              ],
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
