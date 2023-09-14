@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_course_card.dart';
 import 'package:grade_up/common_widget/common_course_tag.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/c_language_screen.dart/c_language.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/latest_courses_screen.dart';
 
 class OnlineCourseScreen extends StatefulWidget {
@@ -37,6 +38,14 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               commonCourseCard(
+                cardFun: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CLanguageScreen(),
+                    ),
+                  );
+                },
                 isFavourite: isFavourite[0],
                 fun: () {
                   if (isFavourite[0]) {
@@ -49,12 +58,12 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 imageUrl: courseCardList[0].image,
                 subjectName: courseCardList[0].subject,
                 totalLeacture: courseCardList[0].totalleacture,
-               
                 icon: Icons.favorite,
                 context: context,
               ),
               commonCourseCard(
                 isFavourite: isFavourite[1],
+                cardFun: () {},
                 fun: () {
                   if (isFavourite[1]) {
                     isFavourite[1] = !isFavourite[1];
@@ -66,7 +75,6 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 imageUrl: courseCardList[1].image,
                 subjectName: courseCardList[1].subject,
                 totalLeacture: courseCardList[1].totalleacture,
-               
                 icon: Icons.favorite,
                 context: context,
               ),
@@ -81,6 +89,7 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               commonCourseCard(
+                cardFun: () {},
                 isFavourite: isFavourite[2],
                 fun: () {
                   if (isFavourite[2]) {
@@ -93,11 +102,11 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 imageUrl: courseCardList[2].image,
                 subjectName: courseCardList[2].subject,
                 totalLeacture: courseCardList[2].totalleacture,
-               
                 icon: Icons.favorite,
                 context: context,
               ),
               commonCourseCard(
+                cardFun: () {},
                 isFavourite: isFavourite[3],
                 fun: () {
                   if (isFavourite[3]) {
@@ -110,7 +119,6 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 imageUrl: courseCardList[3].image,
                 subjectName: courseCardList[3].subject,
                 totalLeacture: courseCardList[3].totalleacture,
-               
                 icon: Icons.favorite,
                 context: context,
               ),
@@ -125,6 +133,7 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               commonCourseCard(
+                cardFun: () {},
                 isFavourite: isFavourite[4],
                 fun: () {
                   if (isFavourite[4]) {
@@ -137,11 +146,11 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 imageUrl: courseCardList[4].image,
                 subjectName: courseCardList[4].subject,
                 totalLeacture: courseCardList[4].totalleacture,
-               
                 icon: Icons.favorite,
                 context: context,
               ),
               commonCourseCard(
+                cardFun: () {},
                 isFavourite: isFavourite[5],
                 fun: () {
                   if (isFavourite[5]) {
@@ -154,7 +163,6 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 imageUrl: courseCardList[5].image,
                 subjectName: courseCardList[5].subject,
                 totalLeacture: courseCardList[5].totalleacture,
-                
                 icon: Icons.favorite,
                 context: context,
               ),
