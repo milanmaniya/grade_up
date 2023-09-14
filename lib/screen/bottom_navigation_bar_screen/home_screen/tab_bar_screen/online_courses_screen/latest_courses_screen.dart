@@ -12,6 +12,8 @@ class LatestCourseScreen extends StatefulWidget {
 }
 
 class _LatestCourseScreenState extends State<LatestCourseScreen> {
+  List<bool> isFavourite = List.generate(6, (index) => false);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +38,15 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
           children: List.generate(
             courseCardList.length,
             (index) => commonCourseCard(
+              isFavourite: isFavourite[index],
+              fun: () {
+                if (isFavourite[index]) {
+                  isFavourite[index] = !isFavourite[index];
+                } else {
+                  isFavourite[index] = !isFavourite[index];
+                }
+                setState(() {});
+              },
               imageUrl: courseCardList[index].image,
               subjectName: courseCardList[index].subject,
               totalLeacture: courseCardList[index].totalleacture,

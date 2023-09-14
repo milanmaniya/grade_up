@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/home_screen.dart';
+import 'package:grade_up/screen/main_screen.dart/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,11 +17,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            backgroundColor: Colors.blue,
-          ),
+          
           useMaterial3: true,
         ),
-        home: const HomeScreen());
+        home: const MainScreen());
   }
 }

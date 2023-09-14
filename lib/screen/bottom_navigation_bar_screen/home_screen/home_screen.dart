@@ -1,4 +1,3 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/online_course_screen.dart';
@@ -23,8 +22,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var _bottomNavIndex = 0;
-
     return Scaffold(
       extendBody: true,
       backgroundColor: ConstraintData.bgColor,
@@ -93,16 +90,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: AnimatedBottomNavigationBar(
-        backgroundColor: Colors.blue,
-        gapLocation: GapLocation.none,
-        icons: const [Icons.home, Icons.message, Icons.favorite, Icons.people],
-        activeIndex: _bottomNavIndex,
-        leftCornerRadius: 20,
-        rightCornerRadius: 20,
-        onTap: (index) => setState(() => _bottomNavIndex = index),
-        //other params
       ),
     );
   }
