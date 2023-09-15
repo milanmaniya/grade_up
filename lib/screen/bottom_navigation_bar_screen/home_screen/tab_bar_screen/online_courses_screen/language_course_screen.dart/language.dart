@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 
-class CLanguageScreen extends StatefulWidget {
-  const CLanguageScreen({super.key});
+class LanguageCourseScreen extends StatefulWidget {
+  const LanguageCourseScreen({super.key, required this.index});
+
+  final int? index;
 
   @override
-  State<CLanguageScreen> createState() => _CLanguageScreenState();
+  State<LanguageCourseScreen> createState() => _LanguageCourseScreenState();
 }
 
-class _CLanguageScreenState extends State<CLanguageScreen> {
+class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +39,8 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
                 height: 250,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/c.jpg'),
+                  image: DecorationImage(
+                    image: AssetImage(courseCardList[widget.index!].image),
                   ),
                 ),
               ),
@@ -47,7 +50,7 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
               Row(
                 children: [
                   Text(
-                    'Web Designing',
+                    courseCardList[widget.index!].subject,
                     style: GoogleFonts.lato(
                       color: Colors.black,
                       fontSize: 22,
@@ -56,7 +59,7 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
                   ),
                   const Spacer(),
                   Text(
-                    '\$120.00',
+                    courseCardList[widget.index!].price,
                     style: GoogleFonts.lato(
                       color: Colors.black,
                       fontSize: 18,
@@ -71,7 +74,7 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
               Row(
                 children: [
                   Text(
-                    '3 Days Ago',
+                    '${courseCardList[widget.index!].days} Days Ago',
                     style: GoogleFonts.lato(
                       color: Colors.black54,
                       fontSize: 16,
@@ -92,7 +95,7 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
                     width: 5,
                   ),
                   Text(
-                    '20+',
+                    courseCardList[widget.index!].totalCourseSell,
                     style: GoogleFonts.lato(
                       color: Colors.black,
                       fontSize: 16,
@@ -110,7 +113,7 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
                     width: 4,
                   ),
                   Text(
-                    '4.0',
+                    courseCardList[widget.index!].courseRate,
                     style: GoogleFonts.lato(
                       color: Colors.black,
                       fontSize: 16,
@@ -121,7 +124,7 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
                     width: 3,
                   ),
                   Text(
-                    '(7 Reviews)',
+                    '(${courseCardList[widget.index!].totalReview})',
                     style: GoogleFonts.lato(
                       color: Colors.black54,
                       fontSize: 16,
@@ -160,7 +163,7 @@ class _CLanguageScreenState extends State<CLanguageScreen> {
                           width: 6,
                         ),
                         Text(
-                          'Time: 3 Hours',
+                          'Time: ${courseCardList[widget.index!].totalHours} Hours',
                           style: GoogleFonts.lato(
                             color: Colors.black54,
                             fontSize: 16,

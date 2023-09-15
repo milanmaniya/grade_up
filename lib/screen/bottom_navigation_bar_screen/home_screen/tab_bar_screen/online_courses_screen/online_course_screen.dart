@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_course_card.dart';
 import 'package:grade_up/common_widget/common_course_tag.dart';
-import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/c_language.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/language.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/latest_courses_screen.dart';
 
 class OnlineCourseScreen extends StatefulWidget {
@@ -42,7 +42,8 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const CLanguageScreen(),
+                      builder: (context) =>
+                          const LanguageCourseScreen(index: 0),
                     ),
                   );
                 },
@@ -63,7 +64,15 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
               ),
               commonCourseCard(
                 isFavourite: isFavourite[1],
-                cardFun: () {},
+                cardFun: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const LanguageCourseScreen(index: 1),
+                    ),
+                  );
+                },
                 fun: () {
                   if (isFavourite[1]) {
                     isFavourite[1] = !isFavourite[1];
@@ -89,7 +98,15 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               commonCourseCard(
-                cardFun: () {},
+                cardFun: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const LanguageCourseScreen(index: 2),
+                    ),
+                  );
+                },
                 isFavourite: isFavourite[2],
                 fun: () {
                   if (isFavourite[2]) {
@@ -106,7 +123,15 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 context: context,
               ),
               commonCourseCard(
-                cardFun: () {},
+                cardFun: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const LanguageCourseScreen(index: 3),
+                    ),
+                  );
+                },
                 isFavourite: isFavourite[3],
                 fun: () {
                   if (isFavourite[3]) {
@@ -133,7 +158,15 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               commonCourseCard(
-                cardFun: () {},
+                cardFun: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const LanguageCourseScreen(index: 4),
+                    ),
+                  );
+                },
                 isFavourite: isFavourite[4],
                 fun: () {
                   if (isFavourite[4]) {
@@ -150,7 +183,15 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 context: context,
               ),
               commonCourseCard(
-                cardFun: () {},
+                cardFun: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          const LanguageCourseScreen(index: 5),
+                    ),
+                  );
+                },
                 isFavourite: isFavourite[5],
                 fun: () {
                   if (isFavourite[5]) {
