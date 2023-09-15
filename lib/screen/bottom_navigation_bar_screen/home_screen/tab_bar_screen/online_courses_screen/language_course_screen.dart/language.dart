@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
@@ -19,11 +20,27 @@ class LanguageCourseScreen extends StatefulWidget {
 class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
   final Razorpay _razorpay = Razorpay();
 
+  String? orderId;
+  String? paymentId;
+
+  @override
+  void initState() {
+    super.initState();
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+  }
+
+  @override
+  void dispose() {
+    _razorpay.clear();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     var options = {
       'key': 'rzp_test_PPC0qcP98CxuXa',
-      'amount': courseCardList[widget.index!].price,
       'name': 'Grade Up',
       'description': courseCardList[widget.index!].subject,
       'prefill': {
@@ -277,16 +294,20 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                   minimumSize: MaterialStateProperty.all(
                       const Size(double.infinity, 50)),
                 ),
-                onPressed: () {
-                  _razorpay.open(options);
-
-                  _razorpay.on(
-                      Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
-                  _razorpay.on(
-                      Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
-                },
+                onPressed: paymentId != null
+                    ? () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LeactureScreen(),
+                          ),
+                        );
+                      }
+                    : () {
+                        _razorpay.open(options);
+                      },
                 child: Text(
-                  'Buy Course',
+                  paymentId != null ? 'Leacture' : 'Buy Course',
                   style: GoogleFonts.lato(
                     color: Colors.white,
                     fontSize: 18,
@@ -301,18 +322,20 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
     );
   }
 
-  _handlePaymentSuccess() {
-    CommonToast().showMessage(message: 'Payment is successfully completed');
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const VideoPlayerScreen(),
-      ),
-    );
+  _handlePaymentSuccess(PaymentSuccessResponse response) {
+    paymentId = response.paymentId;
+    orderId = response.orderId;
+
+    log(response.paymentId!);
+    CommonToast().showMessage(
+        message: 'Payment successfully completed\n ${response.paymentId}');
   }
 
-  _handlePaymentError() {
-    CommonToast().showMessage(
-        message: 'Payment is not successfully completed. Please try again!');
+  _handlePaymentError(PaymentFailureResponse response) {
+    CommonToast().showMessage(message: response.error.toString());
+  }
+
+  _handleExternalWallet(ExternalWalletResponse response) {
+    log(response.walletName!);
   }
 }

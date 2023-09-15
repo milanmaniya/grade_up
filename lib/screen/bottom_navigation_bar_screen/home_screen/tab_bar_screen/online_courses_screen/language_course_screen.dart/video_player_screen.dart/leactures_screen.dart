@@ -1,18 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 
-class VideoPlayerScreen extends StatefulWidget {
-  const VideoPlayerScreen({super.key});
+class LeactureScreen extends StatefulWidget {
+  const LeactureScreen({super.key});
 
   @override
-  State<VideoPlayerScreen> createState() => _VideoPlayerScreenState();
+  State<LeactureScreen> createState() => _LeactureScreenState();
 }
 
-class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+class _LeactureScreenState extends State<LeactureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        bottom: commonAppBar(
+          context: context,
+          prefixIcon: Icons.arrow_back,
+          tagName: 'Leactures',
+          fun1: () {
+            Navigator.pop(context);
+          },
+          actionFirstIcon: Icons.favorite,
+        ),
+      ),
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) => ListTile(
