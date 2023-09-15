@@ -36,6 +36,7 @@ List<CommonCardModel> courseCardList = [
     image: 'assets/digital_marketing.jpg',
     subject: 'Digital Marketing',
     totalleacture: '12',
+    
   ),
   CommonCardModel(
     image: 'assets/graphics_design.jpg',

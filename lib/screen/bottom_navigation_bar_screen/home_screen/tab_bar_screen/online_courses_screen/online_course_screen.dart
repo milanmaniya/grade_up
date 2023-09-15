@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_course_card.dart';
 import 'package:grade_up/common_widget/common_course_tag.dart';
-import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/c_language_screen.dart/c_language.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/c_language.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/latest_courses_screen.dart';
 
 class OnlineCourseScreen extends StatefulWidget {
