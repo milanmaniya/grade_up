@@ -7,6 +7,7 @@ import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/common_widget/common_value.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/video_player_screen.dart/leactures_screen.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LanguageCourseScreen extends StatefulWidget {
   const LanguageCourseScreen({super.key, required this.index});
@@ -20,16 +21,16 @@ class LanguageCourseScreen extends StatefulWidget {
 class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
   final Razorpay _razorpay = Razorpay();
 
-  String? orderId;
-  String? paymentId;
-
   @override
   void initState() {
-    super.initState();
+    getValue();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+    super.initState();
   }
+
+  String? paymentId;
 
   @override
   void dispose() {
@@ -41,6 +42,7 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
   Widget build(BuildContext context) {
     var options = {
       'key': 'rzp_test_PPC0qcP98CxuXa',
+      'amount': 100,
       'name': 'Grade Up',
       'description': courseCardList[widget.index!].subject,
       'prefill': {
@@ -294,20 +296,31 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                   minimumSize: MaterialStateProperty.all(
                       const Size(double.infinity, 50)),
                 ),
-                onPressed: paymentId != null
-                    ? () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LeactureScreen(),
-                          ),
-                        );
-                      }
-                    : () {
-                        _razorpay.open(options);
-                      },
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LeactureScreen(),
+                    ),
+                  );
+                },
+                // onPressed: paymentId == null
+                // () {
+                //         _razorpay.open(options);
+                //         setState(() {});
+                //       }:
+                //      () {
+                //         Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //             builder: (context) => const LeactureScreen(),
+                //           ),
+                //         );
+                //         setState(() {});
+                //       },
+
                 child: Text(
-                  paymentId != null ? 'Leacture' : 'Buy Course',
+                  'Leacture',
                   style: GoogleFonts.lato(
                     color: Colors.white,
                     fontSize: 18,
@@ -322,13 +335,16 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
     );
   }
 
-  _handlePaymentSuccess(PaymentSuccessResponse response) {
-    paymentId = response.paymentId;
-    orderId = response.orderId;
+  _handlePaymentSuccess(PaymentSuccessResponse response) async {
+    // paymentId = response.paymentId!;
 
-    log(response.paymentId!);
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setString('paymentId', response.paymentId!);
+
+    log(paymentId!);
     CommonToast().showMessage(
         message: 'Payment successfully completed\n ${response.paymentId}');
+    setState(() {});
   }
 
   _handlePaymentError(PaymentFailureResponse response) {
@@ -337,5 +353,10 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
 
   _handleExternalWallet(ExternalWalletResponse response) {
     log(response.walletName!);
+  }
+
+  void getValue() async {
+    SharedPreferences pre = await SharedPreferences.getInstance();
+    paymentId = pre.getString('paymentId');
   }
 }

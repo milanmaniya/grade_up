@@ -23,10 +23,13 @@ class _LeactureScreenState extends State<LeactureScreen> {
           actionFirstIcon: Icons.favorite,
         ),
       ),
-      body: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) => ListTile(
-          title: Text('Video $index'),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) => ListTile(
+            title: Text('Video $index'),
+          ),
         ),
       ),
     );
