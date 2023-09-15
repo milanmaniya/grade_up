@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
+import 'package:grade_up/common_widget/common_toast.dart';
+import 'package:grade_up/common_widget/common_value.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/video_player_screen.dart/video_player_screen.dart';
+import 'package:grade_up/utils/constraint_data.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class LanguageCourseScreen extends StatefulWidget {
   const LanguageCourseScreen({super.key, required this.index});
@@ -13,8 +18,21 @@ class LanguageCourseScreen extends StatefulWidget {
 }
 
 class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
+  final Razorpay _razorpay = Razorpay();
+
   @override
   Widget build(BuildContext context) {
+    var options = {
+      'key': 'rzp_test_PPC0qcP98CxuXa',
+      'amount': courseCardList[widget.index!].price,
+      'name': 'Grade Up',
+      'description': courseCardList[widget.index!].subject,
+      'prefill': {
+        'contact': CommonValue.phNumberValue,
+        'email': 'gradeup@razorpay.com',
+      }
+    };
+
     return Scaffold(
       appBar: AppBar(
         bottom: commonSecondAppBar(
@@ -121,13 +139,13 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                     ),
                   ),
                   const SizedBox(
-                    width: 3,
+                    width: 4,
                   ),
                   Text(
                     '(${courseCardList[widget.index!].totalReview})',
                     style: GoogleFonts.lato(
                       color: Colors.black54,
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -261,7 +279,15 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                   minimumSize: MaterialStateProperty.all(
                       const Size(double.infinity, 50)),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  _razorpay.open(options);
+
+                  _razorpay.on(
+                      Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+                  _razorpay.on(
+                      Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+                          
+                },
                 child: Text(
                   'Buy Course',
                   style: GoogleFonts.lato(
@@ -276,5 +302,15 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
         ),
       ),
     );
+  }
+
+  _handlePaymentSuccess() {
+    CommonToast().showMessage(message: 'Payment is successfully completed');
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const VideoPlayerScreen(),),);
+  }
+
+  _handlePaymentError() {
+    CommonToast().showMessage(
+        message: 'Payment is not successfully completed. Please try again!');
   }
 }

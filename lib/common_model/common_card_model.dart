@@ -62,7 +62,7 @@ List<CommonCardModel> courseCardList = [
     price: '\$200.00',
     totalCourseSell: '20+',
     courseRate: '4.1',
-    totalReview: '7 Reviews',
+    totalReview: '7 Review',
     totalHours: '4',
   ),
   CommonCardModel(
@@ -73,7 +73,7 @@ List<CommonCardModel> courseCardList = [
     price: '\$120.00',
     totalCourseSell: '12+',
     courseRate: '4.0',
-    totalReview: '5 Reviews',
+    totalReview: '5 Review',
     totalHours: '4',
   ),
   CommonCardModel(
@@ -84,7 +84,7 @@ List<CommonCardModel> courseCardList = [
     price: '\$150.00',
     totalCourseSell: '10+',
     courseRate: '4.2',
-    totalReview: '10 Reviews',
+    totalReview: '10 Review',
     totalHours: '3',
   ),
   CommonCardModel(
@@ -95,7 +95,7 @@ List<CommonCardModel> courseCardList = [
     price: '\$150.00',
     totalCourseSell: '7+',
     courseRate: '3.8',
-    totalReview: '8 Reviews',
+    totalReview: '8 Review',
     totalHours: '3',
   ),
   CommonCardModel(
@@ -106,7 +106,7 @@ List<CommonCardModel> courseCardList = [
     price: '\$250.00',
     totalCourseSell: '15+',
     courseRate: '4.2',
-    totalReview: '14 Reviews',
+    totalReview: '14 Review',
     totalHours: '3.5',
   ),
   CommonCardModel(
@@ -117,7 +117,7 @@ List<CommonCardModel> courseCardList = [
     price: '\$250.00',
     totalCourseSell: '12+',
     courseRate: '3.7',
-    totalReview: '9 Reviews',
+    totalReview: '9 Review',
     totalHours: '3.5',
   ),
 ];
