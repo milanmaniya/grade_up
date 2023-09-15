@@ -4,8 +4,7 @@ import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/common_widget/common_value.dart';
-import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/video_player_screen.dart/video_player_screen.dart';
-import 'package:grade_up/utils/constraint_data.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/video_player_screen.dart/leactures_screen.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class LanguageCourseScreen extends StatefulWidget {
@@ -35,14 +34,13 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        bottom: commonSecondAppBar(
+        bottom: commonAppBar(
           context: context,
           prefixIcon: Icons.arrow_back,
+          tagName: 'Courses',
           fun1: () {
             Navigator.pop(context);
           },
-          fun2: () {},
-          tagName: 'Courses',
           actionFirstIcon: Icons.favorite,
         ),
       ),
@@ -286,7 +284,6 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                       Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
                   _razorpay.on(
                       Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
-                          
                 },
                 child: Text(
                   'Buy Course',
@@ -306,7 +303,12 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
 
   _handlePaymentSuccess() {
     CommonToast().showMessage(message: 'Payment is successfully completed');
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const VideoPlayerScreen(),),);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const VideoPlayerScreen(),
+      ),
+    );
   }
 
   _handlePaymentError() {

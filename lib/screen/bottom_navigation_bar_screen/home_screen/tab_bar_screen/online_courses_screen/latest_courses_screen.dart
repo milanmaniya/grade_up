@@ -20,14 +20,13 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
     return Scaffold(
       backgroundColor: ConstraintData.bgColor,
       appBar: AppBar(
-        bottom: commonSecondAppBar(
+        bottom: commonAppBar(
           context: context,
           prefixIcon: Icons.arrow_back,
+          tagName: 'Latest Courses',
           fun1: () {
             Navigator.pop(context);
           },
-          fun2: () {},
-          tagName: 'Latest Courses',
           actionFirstIcon: Icons.notifications,
         ),
       ),
@@ -40,10 +39,10 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
             courseCardList.length,
             (index) => commonCourseCard(
               cardFun: () {
-                 Navigator.push(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) =>  LanguageCourseScreen(index: index),
+                    builder: (context) => LanguageCourseScreen(index: index),
                   ),
                 );
               },

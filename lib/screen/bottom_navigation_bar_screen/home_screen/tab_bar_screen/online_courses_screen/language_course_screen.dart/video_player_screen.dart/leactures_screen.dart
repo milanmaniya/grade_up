@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grade_up/common_widget/common_app_bar.dart';
 
 class VideoPlayerScreen extends StatefulWidget {
   const VideoPlayerScreen({super.key});
@@ -11,6 +12,7 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) => ListTile(
