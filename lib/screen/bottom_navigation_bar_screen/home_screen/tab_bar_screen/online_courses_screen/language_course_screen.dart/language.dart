@@ -299,7 +299,9 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const LeactureScreen(),
+                      builder: (context) => LeactureScreen(
+                        index: widget.index,
+                      ),
                     ),
                   );
                 },

@@ -4,7 +4,7 @@ import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/leacture_screen/youtube_video_screen.dart';
 
 class LeactureScreen extends StatefulWidget {
-  const LeactureScreen({super.key, this.index});
+  const LeactureScreen({super.key,required this.index});
 
   final int? index;
 
@@ -30,7 +30,7 @@ class _LeactureScreenState extends State<LeactureScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: courseCardList[widget.index!].videoPlayerList.length,
           itemBuilder: (context, index) => ListTile(
             onTap: () {
               Navigator.push(
@@ -43,7 +43,7 @@ class _LeactureScreenState extends State<LeactureScreen> {
                 ),
               );
             },
-            title: Text('Leacture: $index   ${courseCardList[index].subject}'),
+            title: Text('Leacture: $index'),
           ),
         ),
       ),

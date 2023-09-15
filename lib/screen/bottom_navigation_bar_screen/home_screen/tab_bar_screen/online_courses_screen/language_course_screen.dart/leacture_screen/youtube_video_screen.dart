@@ -14,9 +14,14 @@ class YoutubePlayerScreen extends StatefulWidget {
 }
 
 class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
+
+   late YoutubePlayerController controller;
+
   @override
-  Widget build(BuildContext context) {
-    final YoutubePlayerController controller = YoutubePlayerController(
+  void initState() {
+
+    super.initState();
+  controller= YoutubePlayerController(
       initialVideoId: courseCardList[widget.courseIndex!]
           .videoPlayerList[widget.videoIndex!],
       flags: const YoutubePlayerFlags(
@@ -24,7 +29,10 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
         mute: true,
       ),
     );
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: YoutubePlayer(
         controller: controller,
