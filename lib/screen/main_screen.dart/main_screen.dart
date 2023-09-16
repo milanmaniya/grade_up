@@ -29,7 +29,6 @@ class _MainScreenState extends State<MainScreen> {
       body: screenList[_selectedIndex],
       bottomNavigationBar: AnimatedBottomNavigationBar(
         iconSize: 26,
-        
         activeColor: Colors.white,
         backgroundColor: Colors.blue,
         gapLocation: GapLocation.none,
@@ -43,7 +42,6 @@ class _MainScreenState extends State<MainScreen> {
         leftCornerRadius: 20,
         rightCornerRadius: 20,
         onTap: (index) => setState(() => _selectedIndex = index),
-        //other params
       ),
     );
   }
