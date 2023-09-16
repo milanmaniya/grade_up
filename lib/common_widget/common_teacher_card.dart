@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 commonTeacherCard({
+  bool isFavourite = false,
   required String teacherName,
   required String experience,
   required String subject,
+  VoidCallback? fun,
   required String rate,
   required String reviews,
   required String imageUrl,
@@ -50,17 +52,33 @@ commonTeacherCard({
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: fun,
                         icon: CircleAvatar(
-                          backgroundColor: Colors.grey.shade100,
+                          backgroundColor: isFavourite == true
+                              ? Colors.red.shade100
+                              : Colors.grey.shade100,
                           radius: 12,
-                          child: const Icon(
+                          child: Icon(
                             Icons.favorite,
                             size: 12,
-                            color: Colors.black,
+                            color: isFavourite == true
+                                ? Colors.red.shade400
+                                : Colors.black,
                           ),
                         ),
                       ),
+                      // IconButton(
+                      //   onPressed: fun,
+                      //   icon: CircleAvatar(
+                      //     backgroundColor: Colors.grey.shade100,
+                      //     radius: 12,
+                      //     child: const Icon(
+                      //       Icons.favorite,
+                      //       size: 12,
+                      //       color: Colors.black,
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                   Text(

@@ -12,6 +12,9 @@ class AllTeacherScreen extends StatefulWidget {
 }
 
 class _AllTeacherScreenState extends State<AllTeacherScreen> {
+  List<bool> isFavourite=
+      List.generate(commonTeacherCardList.length, (index) => false);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +41,14 @@ class _AllTeacherScreenState extends State<AllTeacherScreen> {
         child: ListView.builder(
           itemCount: commonTeacherCardList.length,
           itemBuilder: (context, index) => commonTeacherCard(
+            fun: () {
+              if (isFavourite[index]) {
+                isFavourite[index] = !isFavourite[index];
+              } else {
+                isFavourite[index] = !isFavourite[index];
+              }
+              setState(() {});
+            },
             teacherName: commonTeacherCardList[index].teacherName,
             experience: commonTeacherCardList[index].experience,
             subject: commonTeacherCardList[index].subject,

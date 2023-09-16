@@ -18,6 +18,8 @@ class TuitionScreen extends StatefulWidget {
 }
 
 class _TuitionScreenState extends State<TuitionScreen> {
+  List<bool> isFavourite= List.generate(2, (index) => false);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,6 +128,14 @@ class _TuitionScreenState extends State<TuitionScreen> {
               },
             ),
             commonTeacherCard(
+              fun: () {
+                if (isFavourite[0]) {
+                  isFavourite[0] = !isFavourite[0];
+                } else {
+                  isFavourite[0] = !isFavourite[0];
+                }
+                setState(() {});
+              },
               teacherName: commonTeacherCardList[0].teacherName,
               experience: commonTeacherCardList[0].experience,
               subject: commonTeacherCardList[0].subject,
@@ -134,6 +144,14 @@ class _TuitionScreenState extends State<TuitionScreen> {
               imageUrl: commonTeacherCardList[0].image,
             ),
             commonTeacherCard(
+              fun: () {
+                if (isFavourite[1]) {
+                  isFavourite[1] = !isFavourite[1];
+                } else {
+                  isFavourite[1] = !isFavourite[1];
+                }
+                setState(() {});
+              },
               teacherName: commonTeacherCardList[1].teacherName,
               experience: commonTeacherCardList[1].experience,
               subject: commonTeacherCardList[1].subject,

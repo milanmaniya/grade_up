@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:grade_up/screen/main_screen.dart/main_screen.dart';
-import 'package:grade_up/screen/splash_screen/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -10,6 +9,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+
+  
+
   const MyApp({super.key});
 
   @override

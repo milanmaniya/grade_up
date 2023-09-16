@@ -13,7 +13,6 @@ class OnlineCourseScreen extends StatefulWidget {
 }
 
 class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
-  // bool isFavourite = false;
 
   List<bool> isFavourite = List.generate(6, (index) => false);
 
@@ -92,7 +91,9 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
           commonCourseTag(
             tagName: 'Best Seller Courses',
             buttonName: 'See More',
-            fun: () {},
+            fun: () {
+              
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
