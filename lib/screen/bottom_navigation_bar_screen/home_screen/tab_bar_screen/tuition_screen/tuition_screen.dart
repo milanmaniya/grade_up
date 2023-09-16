@@ -5,6 +5,7 @@ import 'package:grade_up/common_model/common_teacher_card_model.dart';
 import 'package:grade_up/common_widget/common_course_tag.dart';
 import 'package:grade_up/common_widget/common_student_post_card.dart';
 import 'package:grade_up/common_widget/common_teacher_card.dart';
+import 'package:grade_up/firebase_api/teacher_firebase_api/teacher_firebase_api.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/add_profile_screen/register_student_post.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/add_profile_screen/register_teacher_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/student_post_see_more.dart';
@@ -20,6 +21,12 @@ class TuitionScreen extends StatefulWidget {
 class _TuitionScreenState extends State<TuitionScreen> {
   List<bool> isFavourite =
       List.generate(commonTeacherCardList.length, (index) => false);
+
+  @override
+  void initState() {
+    TeacherFirebaseApi.setTeacherData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +153,7 @@ class _TuitionScreenState extends State<TuitionScreen> {
               imageUrl: commonTeacherCardList[0].image,
             ),
             commonTeacherCard(
-                isFavourite: isFavourite[1],
+              isFavourite: isFavourite[1],
               fun: () {
                 if (isFavourite[1]) {
                   isFavourite[1] = !isFavourite[1];
