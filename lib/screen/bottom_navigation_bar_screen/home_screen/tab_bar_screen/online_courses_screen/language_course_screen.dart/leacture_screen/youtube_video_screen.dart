@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
-import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

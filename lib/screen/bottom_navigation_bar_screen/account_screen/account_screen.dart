@@ -84,7 +84,11 @@ class _AccountScreenState extends State<AccountScreen> {
                 width: 140,
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.red,
+                  image: DecorationImage(
+                    filterQuality: FilterQuality.high,
+                    fit: BoxFit.cover,
+                    image: AssetImage('assets/prof_cplus.jpg'),
+                  ),
                 ),
               ),
             ],

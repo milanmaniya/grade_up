@@ -10,7 +10,7 @@ commonTeacherCard({
   required String imageUrl,
 }) =>
     Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: const EdgeInsets.symmetric(vertical: 4),
       child: Card(
         color: Colors.grey.shade100,
         elevation: 5,

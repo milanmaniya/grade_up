@@ -96,7 +96,7 @@ class _TuitionScreenState extends State<TuitionScreen> {
               tagName: 'Suggested Teacher',
               buttonName: 'See More',
               fun: () {
-                 Navigator.push(  
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const AllTeacherScreen(),
@@ -112,9 +112,6 @@ class _TuitionScreenState extends State<TuitionScreen> {
               reviews: commonTeacherCardList[0].review,
               imageUrl: commonTeacherCardList[0].image,
             ),
-            const SizedBox(
-              height: 10,
-            ),
             commonTeacherCard(
               teacherName: commonTeacherCardList[1].teacherName,
               experience: commonTeacherCardList[1].experience,
@@ -126,13 +123,156 @@ class _TuitionScreenState extends State<TuitionScreen> {
             commonCourseTag(
               tagName: 'Suggested Student Post',
               buttonName: 'See More',
-              fun: () {
-               
-              },
+              fun: () {},
+            ),
+            Card(
+              elevation: 5,
+              color: Colors.grey.shade100,
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                height: 260,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      'I Need A Good Teacher',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.lato(
+                        color: Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        commonContainer(),
+                        Text(
+                          ':',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        commonContainer(),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        commonContainer(),
+                        Text(
+                          ':',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        commonContainer(),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        commonContainer(),
+                        Text(
+                          ':',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.lato(
+                            color: Colors.black,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        commonContainer(),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          height: 55,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.red,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Milan',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.lato(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.location_on_rounded,
+                                  color: Colors.black,
+                                  size: 14,
+                                ),
+                                Text(
+                                  'Surat',
+                                  textAlign: TextAlign.center,
+                                  style: GoogleFonts.lato(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 100,
             ),
           ],
         ),
       ),
     );
   }
+
+  commonContainer() => Container(
+        width: 100,
+        height: 35,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black12,
+          ),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Text(
+          'Class',
+          textAlign: TextAlign.center,
+          style: GoogleFonts.lato(
+            color: Colors.black,
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
 }
