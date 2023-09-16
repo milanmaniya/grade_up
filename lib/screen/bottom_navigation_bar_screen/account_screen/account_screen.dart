@@ -15,7 +15,7 @@ class AccountScreen extends StatefulWidget {
 class _AccountScreenState extends State<AccountScreen> {
   late Future<List<Map>> futureUserData;
 
-  String key='';
+  String key = '';
 
   @override
   void initState() {
@@ -96,8 +96,7 @@ class _AccountScreenState extends State<AccountScreen> {
             future: futureUserData,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-
-                key= snapshot.data![0]['key'];
+                key = snapshot.data![0]['key'];
 
                 return Container(
                   width: context.screenWidth * 0.9,
@@ -184,7 +183,6 @@ class _AccountScreenState extends State<AccountScreen> {
               }
             },
           ),
-          const Spacer(),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             child: ElevatedButton(

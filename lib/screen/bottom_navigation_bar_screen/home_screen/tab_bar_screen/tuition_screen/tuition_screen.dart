@@ -95,7 +95,14 @@ class _TuitionScreenState extends State<TuitionScreen> {
             commonCourseTag(
               tagName: 'Suggested Teacher',
               buttonName: 'See More',
-              fun: () {},
+              fun: () {
+                 Navigator.push(  
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AllTeacherScreen(),
+                  ),
+                );
+              },
             ),
             commonTeacherCard(
               teacherName: commonTeacherCardList[0].teacherName,
@@ -120,12 +127,7 @@ class _TuitionScreenState extends State<TuitionScreen> {
               tagName: 'Suggested Student Post',
               buttonName: 'See More',
               fun: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const AllTeacherScreen(),
-                  ),
-                );
+               
               },
             ),
           ],

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_teacher_card_model.dart';
-import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_teacher_card.dart';
+import 'package:grade_up/utils/constraint_data.dart';
 
 class AllTeacherScreen extends StatefulWidget {
   const AllTeacherScreen({super.key});
@@ -15,22 +16,35 @@ class _AllTeacherScreenState extends State<AllTeacherScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        bottom: commonAppBar(
-          context: context,
-          prefixIcon: Icons.arrow_back,
-          tagName: 'Suggested Teachers',
-          actionSecondIcon: Icons.notifications,
+        backgroundColor: ConstraintData.bgAppBarColor,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
+        title: Text(
+          'Suggested Teacher',
+          style: GoogleFonts.lato(
+            color: Colors.black,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        centerTitle: true,
       ),
-      body: ListView.builder(
-        itemCount: commonTeacherCardList.length,
-        itemBuilder: (context, index) => commonTeacherCard(
-          teacherName: commonTeacherCardList[index].teacherName,
-          experience: commonTeacherCardList[index].experience,
-          subject: commonTeacherCardList[index].subject,
-          rate: commonTeacherCardList[index].rate,
-          reviews: commonTeacherCardList[index].review,
-          imageUrl: commonTeacherCardList[index].image,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: ListView.builder(
+          itemCount: commonTeacherCardList.length,
+          itemBuilder: (context, index) => commonTeacherCard(
+            teacherName: commonTeacherCardList[index].teacherName,
+            experience: commonTeacherCardList[index].experience,
+            subject: commonTeacherCardList[index].subject,
+            rate: commonTeacherCardList[index].rate,
+            reviews: commonTeacherCardList[index].review,
+            imageUrl: commonTeacherCardList[index].image,
+          ),
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
+import 'package:grade_up/utils/constraint_data.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubePlayerScreen extends StatefulWidget {
@@ -34,15 +36,22 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        bottom: commonAppBar(
-          context: context,
-          fun1: () {
+        backgroundColor: ConstraintData.bgAppBarColor,
+        leading: IconButton(
+          onPressed: () {
             Navigator.pop(context);
           },
-          actionFirstIcon: Icons.favorite,
-          prefixIcon: Icons.arrow_back,
-          tagName: 'Leactures',
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
+        title: Text(
+          'Leactures',
+          style: GoogleFonts.lato(
+            color: Colors.black,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: YoutubePlayer(
         controller: controller,
