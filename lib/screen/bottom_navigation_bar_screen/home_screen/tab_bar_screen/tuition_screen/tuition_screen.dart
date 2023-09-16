@@ -18,7 +18,8 @@ class TuitionScreen extends StatefulWidget {
 }
 
 class _TuitionScreenState extends State<TuitionScreen> {
-  List<bool> isFavourite= List.generate(2, (index) => false);
+  List<bool> isFavourite =
+      List.generate(commonTeacherCardList.length, (index) => false);
 
   @override
   Widget build(BuildContext context) {
@@ -128,6 +129,7 @@ class _TuitionScreenState extends State<TuitionScreen> {
               },
             ),
             commonTeacherCard(
+              isFavourite: isFavourite[0],
               fun: () {
                 if (isFavourite[0]) {
                   isFavourite[0] = !isFavourite[0];
@@ -144,6 +146,7 @@ class _TuitionScreenState extends State<TuitionScreen> {
               imageUrl: commonTeacherCardList[0].image,
             ),
             commonTeacherCard(
+                isFavourite: isFavourite[1],
               fun: () {
                 if (isFavourite[1]) {
                   isFavourite[1] = !isFavourite[1];

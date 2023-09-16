@@ -41,6 +41,7 @@ class _AllTeacherScreenState extends State<AllTeacherScreen> {
         child: ListView.builder(
           itemCount: commonTeacherCardList.length,
           itemBuilder: (context, index) => commonTeacherCard(
+            isFavourite: isFavourite[index],
             fun: () {
               if (isFavourite[index]) {
                 isFavourite[index] = !isFavourite[index];

@@ -67,18 +67,6 @@ commonTeacherCard({
                           ),
                         ),
                       ),
-                      // IconButton(
-                      //   onPressed: fun,
-                      //   icon: CircleAvatar(
-                      //     backgroundColor: Colors.grey.shade100,
-                      //     radius: 12,
-                      //     child: const Icon(
-                      //       Icons.favorite,
-                      //       size: 12,
-                      //       color: Colors.black,
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                   Text(
