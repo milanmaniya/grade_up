@@ -36,7 +36,7 @@ class TeacherCard {
 
 List<TeacherCard> commonTeacherCardList = [
   TeacherCard(
-    image: 'assets/digital_marketing.jpg',
+    image: 'assets/prof_digital_marketing.jpg',
     subject: 'Digital Marketing',
     teacherName: 'Minhazul Abedin',
     experience: '2',
@@ -44,7 +44,7 @@ List<TeacherCard> commonTeacherCardList = [
     review: '8',
   ),
   TeacherCard(
-    image: 'assets/graphics_design.jpg',
+    image: 'assets/prof_graphics.jpg',
     subject: 'Graphics Design',
     teacherName: 'Omar Faruk',
     experience: '3',
