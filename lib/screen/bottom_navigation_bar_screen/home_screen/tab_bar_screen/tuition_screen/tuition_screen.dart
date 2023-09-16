@@ -5,6 +5,7 @@ import 'package:grade_up/common_model/common_teacher_card_model.dart';
 import 'package:grade_up/common_widget/common_course_tag.dart';
 import 'package:grade_up/common_widget/common_student_post_card.dart';
 import 'package:grade_up/common_widget/common_teacher_card.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/add_profile_screen/register_student_post.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/add_profile_screen/register_teacher_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/student_post_see_more.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/teacher_see_more_screen.dart';
@@ -79,7 +80,15 @@ class _TuitionScreenState extends State<TuitionScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const RegisterStudentPostScreen(),
+                              ),
+                            );
+                          },
                           icon: CircleAvatar(
                             backgroundColor: Colors.grey.shade100,
                             radius: 20,

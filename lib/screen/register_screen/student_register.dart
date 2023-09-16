@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grade_up/common_widget/common_text_editing_controller.dart';
+import 'package:grade_up/common_controller/register_controller/common_text_editing_controller.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:grade_up/firebase_api/firebase_api.dart';

@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grade_up/common_model/common_teacher_card_model.dart';
-import 'package:grade_up/common_controller/teacher_post_controller/common_teacher_register.dart';
+import 'package:grade_up/common_controller/student_post_controller/student_post_controller.dart';
+import 'package:grade_up/common_model/common_student_post_model.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
-class RegisterTeacherScreen extends StatefulWidget {
-  const RegisterTeacherScreen({super.key});
+class RegisterStudentPostScreen extends StatefulWidget {
+  const RegisterStudentPostScreen({super.key});
 
   @override
-  State<RegisterTeacherScreen> createState() => _RegisterTeacherScreenState();
+  State<RegisterStudentPostScreen> createState() =>
+      _RegisterStudentPostScreenState();
 }
 
-class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
+class _RegisterStudentPostScreenState extends State<RegisterStudentPostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +27,7 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
           icon: const Icon(Icons.arrow_back_rounded),
         ),
         title: Text(
-          'Register Teacher',
+          'Register Student Post',
           style: GoogleFonts.lato(
             color: Colors.black,
             fontSize: 25,
@@ -37,7 +38,7 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
       ),
       body: SingleChildScrollView(
         child: Form(
-          key: TeacherRegController.key,
+          key: StudentRegController.key,
           child: Column(
             children: [
               const SizedBox(
@@ -57,59 +58,57 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
               ),
               commonTextFormField(
                 icon: Icons.person,
-                nameOfField: "Teacher Name",
+                nameOfField: "Student Name",
                 textEditingController:
-                    TeacherRegController.regTeacherControllerList[0],
+                    StudentRegController.regStudentControllerList[0],
               ),
               commonTextFormField(
                 icon: Icons.email,
-                nameOfField: "Phone Number",
+                nameOfField: "Class",
                 textEditingController:
-                    TeacherRegController.regTeacherControllerList[1],
+                    StudentRegController.regStudentControllerList[1],
               ),
               commonTextFormField(
                 icon: Icons.phone_android,
-                nameOfField: "Email Id",
+                nameOfField: "Weekly Days",
                 textEditingController:
-                    TeacherRegController.regTeacherControllerList[2],
+                    StudentRegController.regStudentControllerList[2],
               ),
               commonTextFormField(
                 icon: Icons.email,
                 nameOfField: "Subject",
                 textEditingController:
-                    TeacherRegController.regTeacherControllerList[3],
+                    StudentRegController.regStudentControllerList[3],
               ),
               commonTextFormField(
                 icon: Icons.email,
-                nameOfField: "Age",
+                nameOfField: "Message",
                 textEditingController:
-                    TeacherRegController.regTeacherControllerList[4],
+                    StudentRegController.regStudentControllerList[4],
               ),
               commonTextFormField(
                 icon: Icons.email,
-                nameOfField: "Experience",
+                nameOfField: "Location",
                 textEditingController:
-                    TeacherRegController.regTeacherControllerList[5],
-              ),
-              commonTextFormField(
-                icon: Icons.email,
-                nameOfField: "Gender",
-                textEditingController:
-                    TeacherRegController.regTeacherControllerList[6],
+                    StudentRegController.regStudentControllerList[5],
               ),
               GestureDetector(
                 onTap: () {
-                  commonTeacherCardList.add(
-                    TeacherCard(
-                      image: 'assets/prof_cplus.jpg',
+                  studentPostList.add(
+                    StudentPost(
+                      image: 'assets/student_6.jpg',
                       subject:
-                          TeacherRegController.regTeacherControllerList[1].text,
-                      teacherName:
-                          TeacherRegController.regTeacherControllerList[0].text,
-                      experience:
-                          TeacherRegController.regTeacherControllerList[5].text,
-                      rate: '3.5',
-                      review: ' 7 Reviews ',
+                          StudentRegController.regStudentControllerList[3].text,
+                      totalDays:
+                          StudentRegController.regStudentControllerList[2].text,
+                      className:
+                          StudentRegController.regStudentControllerList[1].text,
+                      location:
+                          StudentRegController.regStudentControllerList[5].text,
+                      studentName:
+                          StudentRegController.regStudentControllerList[0].text,
+                      message:
+                          StudentRegController.regStudentControllerList[4].text,
                     ),
                   );
                   Navigator.pop(context);
