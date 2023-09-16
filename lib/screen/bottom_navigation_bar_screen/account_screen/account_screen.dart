@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_text.dart';
@@ -14,7 +13,9 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
-  late Future<List<Map>>? futureUserData;
+  late Future<List<Map>> futureUserData;
+
+  String key='';
 
   @override
   void initState() {
@@ -95,6 +96,9 @@ class _AccountScreenState extends State<AccountScreen> {
             future: futureUserData,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
+
+                key= snapshot.data![0]['key'];
+
                 return Container(
                   width: context.screenWidth * 0.9,
                   padding: const EdgeInsets.all(10),
@@ -119,10 +123,23 @@ class _AccountScreenState extends State<AccountScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                         Expanded(child: 
-                         ListView.builder(
-                          itemCount: snapshot.data!.length,
-                          itemBuilder: (context, index) => commonText(data: snapshot.data![index]['userName'], size: 17),),),
+                          commonText(
+                              data: ":- ${snapshot.data![0]['userName']}",
+                              size: 17),
+                          commonText(
+                              data: ":- ${snapshot.data![0]['mobNum']}",
+                              size: 17),
+                          commonText(
+                              data: ":- ${snapshot.data![0]['email']}",
+                              size: 17),
+                          commonText(
+                              data: ":- ${snapshot.data![0]['age']}", size: 17),
+                          commonText(
+                              data: ":- ${snapshot.data![0]['gender']}",
+                              size: 17),
+                          commonText(
+                              data: ":- ${snapshot.data![0]['address']}",
+                              size: 17),
                         ],
                       ),
                     ],
@@ -153,7 +170,7 @@ class _AccountScreenState extends State<AccountScreen> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          commonText(data: ":- Patient Name", size: 17),
+                          commonText(data: ":- profile Name", size: 17),
                           commonText(data: ":- Mobile No", size: 17),
                           commonText(data: ":- Email", size: 17),
                           commonText(data: ":- Age", size: 17),
@@ -178,6 +195,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
               ),
               onPressed: () {
+                FirebaseApi.removeData(key: key);
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_database/firebase_database.dart';
 
 class FirebaseApi {
@@ -33,6 +35,7 @@ class FirebaseApi {
     data.forEach((key, value) {
       userData.add(value);
     });
+    log("$userData");
     return userData;
   }
 

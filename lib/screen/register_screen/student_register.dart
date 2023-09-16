@@ -72,30 +72,30 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
                 textEditingController: CommonRegController.regControllerList[2],
               ),
               commonTextFormField(
-                icon: Icons.home,
+                icon: Icons.calendar_month_rounded,
                 nameOfField: "Age",
                 textEditingController: CommonRegController.regControllerList[3],
               ),
               commonTextFormField(
                 icon: Icons.person_2_rounded,
                 nameOfField: "Gender",
-                textEditingController: CommonRegController.regControllerList[3],
+                textEditingController: CommonRegController.regControllerList[4],
               ),
               commonTextFormField(
                 icon: Icons.home,
                 nameOfField: "Address..",
-                textEditingController: CommonRegController.regControllerList[4],
+                textEditingController: CommonRegController.regControllerList[5],
               ),
               commonTextFormField(
                 icon: Icons.lock,
                 nameOfField: "Password",
-                textEditingController: CommonRegController.regControllerList[5],
+                textEditingController: CommonRegController.regControllerList[6],
                 obscureText: true,
               ),
               commonTextFormField(
                 icon: Icons.lock,
                 nameOfField: "Conform Password",
-                textEditingController: CommonRegController.regControllerList[6],
+                textEditingController: CommonRegController.regControllerList[7],
                 obscureText: true,
               ),
               GestureDetector(
