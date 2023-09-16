@@ -101,7 +101,6 @@ class _AccountScreenState extends State<AccountScreen> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 key = snapshot.data![0]['key'];
-
                 return Container(
                   width: context.screenWidth * 0.9,
                   padding: const EdgeInsets.all(10),
