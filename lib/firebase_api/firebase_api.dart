@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:firebase_database/firebase_database.dart';
 
 class FirebaseApi {
@@ -37,13 +36,6 @@ class FirebaseApi {
     });
     log("$userData");
     return userData;
-  }
-
-  static updateData({required String key, required String userName}) {
-    db.child(key).update({
-      'key': key,
-      'userName': userName,
-    });
   }
 
   static Future<void> removeData({required String key}) async {
