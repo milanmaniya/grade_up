@@ -88,7 +88,11 @@ commonStudentPostCard({
                     width: 60,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.red,
+                      image: DecorationImage(
+                        filterQuality: FilterQuality.high,
+                        fit: BoxFit.cover,
+                        image: AssetImage(imageUrl),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -99,7 +103,7 @@ commonStudentPostCard({
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Milan',
+                        studentName,
                         textAlign: TextAlign.center,
                         style: GoogleFonts.lato(
                           color: Colors.black,
@@ -115,7 +119,7 @@ commonStudentPostCard({
                             size: 14,
                           ),
                           Text(
-                            'Surat',
+                            location,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.lato(
                               color: Colors.black,

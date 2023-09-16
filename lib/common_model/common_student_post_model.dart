@@ -41,7 +41,7 @@ class StudentPost {
 List<StudentPost> studentPostList = [
   StudentPost(
     image: 'assets/student_1.jpg',
-    subject: 'Digital Marketing',
+    subject: 'Marketing',
     totalDays: '4 Days',
     className: '10-12',
     location: 'Surat, India',
