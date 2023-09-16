@@ -77,6 +77,11 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
                 textEditingController: CommonRegController.regControllerList[3],
               ),
               commonTextFormField(
+                icon: Icons.person_2_rounded,
+                nameOfField: "Gender",
+                textEditingController: CommonRegController.regControllerList[3],
+              ),
+              commonTextFormField(
                 icon: Icons.home,
                 nameOfField: "Address..",
                 textEditingController: CommonRegController.regControllerList[4],
@@ -100,10 +105,12 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
                     mobNum: CommonRegController.regControllerList[1].text,
                     email: CommonRegController.regControllerList[2].text,
                     age: CommonRegController.regControllerList[3].text,
-                    address: CommonRegController.regControllerList[4].text,
-                    pass: CommonRegController.regControllerList[5].text,
+                    gender: CommonRegController.regControllerList[4].text,
+                    address: CommonRegController.regControllerList[5].text,
+                    pass: CommonRegController.regControllerList[6].text,
                   ).then((value) {
                     CommonRegController.regControllerList.clear();
+                    Navigator.pop(context);
                   });
                 },
                 child: Container(

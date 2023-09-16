@@ -8,39 +8,42 @@ class FirebaseApi {
     required String mobNum,
     required String email,
     required String age,
+    required String gender,
     required String address,
     required String pass,
   }) async {
     String key = db.push().key!;
     await db.child(key).set({
       'key': key,
-      'hospName': userName,
+      'userName': userName,
       'mobNum': mobNum,
       'email': email,
       'address': address,
       'age': age,
+      'gender': gender,
       'pass': pass
     });
   }
 
-  static Future<bool> selectData(String phNumber) async {
+  static Future<List<Map>> selectData() async {
     Map data =
         await db.once().then((value) => value.snapshot.value as Map? ?? {});
 
-    // for the fetching all data from the list
     List<Map> userData = [];
-    data.forEach(
-      (key, value) {
-        userData.add(value);
-      },
-    );
+    data.forEach((key, value) {
+      userData.add(value);
+    });
+    return userData;
+  }
 
-    // for the fetching ph number value
-    for (var element in userData) {
-      if (element['mobNum'] == phNumber) {
-        return true;
-      }
-    }
-    return false;
+  static updateData({required String key, required String userName}) {
+    db.child(key).update({
+      'key': key,
+      'userName': userName,
+    });
+  }
+
+  static Future<void> removeData({required String key}) async {
+    await db.child(key).remove();
   }
 }

@@ -9,10 +9,14 @@ class CommonRegController {
       TextEditingController();
   static final TextEditingController _txtPasswordController =
       TextEditingController();
+
   static final TextEditingController _txtCPasswordController =
       TextEditingController();
   static final TextEditingController _txtAgeController =
       TextEditingController();
+  static final TextEditingController _txtGenderController =
+      TextEditingController();
+
   static final TextEditingController _txtAddressController =
       TextEditingController();
 
@@ -23,6 +27,7 @@ class CommonRegController {
         _txtPhoneNumberController,
         _txtemailController,
         _txtAgeController,
+        _txtGenderController,
         _txtAddressController,
         _txtPasswordController,
         _txtCPasswordController,
