@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_phone_field.dart';
 import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
+import 'package:grade_up/screen/register_screen/student_register.dart';
 import 'package:grade_up/screen/sign_up_screen/otp_text_field_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
@@ -102,6 +103,37 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   log(_controller.text);
                 },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    ConstraintData.notHaveAccount,
+                    style: GoogleFonts.lato(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const StudentRegisterScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      ConstraintData.register,
+                      style: GoogleFonts.lato(
+                        color: Colors.black,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

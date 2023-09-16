@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
+import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubePlayerScreen extends StatefulWidget {
@@ -14,14 +15,12 @@ class YoutubePlayerScreen extends StatefulWidget {
 }
 
 class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
-
-   late YoutubePlayerController controller;
+  late YoutubePlayerController controller;
 
   @override
   void initState() {
-
     super.initState();
-  controller= YoutubePlayerController(
+    controller = YoutubePlayerController(
       initialVideoId: courseCardList[widget.courseIndex!]
           .videoPlayerList[widget.videoIndex!],
       flags: const YoutubePlayerFlags(
@@ -34,6 +33,17 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        bottom: commonAppBar(
+          context: context,
+          fun1: () {
+            Navigator.pop(context);
+          },
+          actionFirstIcon: Icons.favorite,
+          prefixIcon: Icons.arrow_back,
+          tagName: 'Leactures',
+        ),
+      ),
       body: YoutubePlayer(
         controller: controller,
         showVideoProgressIndicator: true,
