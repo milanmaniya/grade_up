@@ -8,7 +8,15 @@ class StudentFirebaseApi {
     String key = db.push().key!;
 
     for (int i = 0; i < studentPostList.length; i++) {
-      await db.child(key).set(studentPostList[i]);
+      await db.child(key).set({
+          "image": studentPostList[i].image,
+        "subject": studentPostList[i].subject,
+        "totalDays": studentPostList[i].totalDays,
+        "className": studentPostList[i].className,
+        "location": studentPostList[i].location,
+        "studentName": studentPostList[i].studentName,
+        "message": studentPostList[i].message,
+      });
     }
   }
 }
