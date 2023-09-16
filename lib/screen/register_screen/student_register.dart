@@ -41,14 +41,17 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
           key: CommonRegController.key,
           child: Column(
             children: [
+              const SizedBox(
+                height: 20,
+              ),
               Container(
                 height: context.screenHeight * 0.35,
-                width: context.screenWidth * 0.9,
+                width: context.screenWidth * 0.8,
                 margin:
                     EdgeInsets.symmetric(horizontal: context.screenWidth * 0.1),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/images/hospitalregister.jpeg"),
+                    image: AssetImage("assets/welcome.png"),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -101,7 +104,6 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
                     pass: CommonRegController.regControllerList[5].text,
                   ).then((value) {
                     CommonRegController.regControllerList.clear();
-                    Navigator.pop(context);
                   });
                 },
                 child: Container(
