@@ -1,13 +1,10 @@
 import 'dart:developer';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_phone_field.dart';
-import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
+import 'package:grade_up/firebase_api/firebase_api_auth.dart';
 import 'package:grade_up/screen/register_screen/student_register.dart';
-import 'package:grade_up/screen/sign_up_screen/otp_text_field_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,8 +16,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _controller = TextEditingController();
-
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void dispose() {
@@ -77,30 +72,9 @@ class _LoginScreenState extends State<LoginScreen> {
               commonPhoneField(
                 controller: _controller,
                 context: context,
-                onTap: () async {
-                  await _auth.verifyPhoneNumber(
-                    phoneNumber: '+91${_controller.text}',
-                    codeAutoRetrievalTimeout: (verificationId) {},
-                    codeSent: (verificationId, forceResendingToken) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => OtpTextFieldScreen(
-                            verificationId: verificationId,
-                          ),
-                        ),
-                      );
-                    },
-                    verificationFailed: (error) {
-                      CommonToast().showMessage(message: error.toString());
-                    },
-                    verificationCompleted: (phoneAuthCredential) {
-                      CommonToast().showMessage(
-                          message: 'Verification complete successfully');
-                    },
-                    timeout: const Duration(seconds: 30),
-                  );
-
+                onTap: () {
+                  FirebaseApiAuth()
+                      .sendOtp(phoneNumber: _controller.text, context: context);
                   log(_controller.text);
                 },
               ),

@@ -38,7 +38,6 @@ Widget commonPhoneField({
                 keyboardType: TextInputType.number,
                 onChanged: (value) {
                   CommonValue.phNumberValue = value.number;
-                  
                 },
               ),
               const SizedBox(
