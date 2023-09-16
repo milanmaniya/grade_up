@@ -6,6 +6,9 @@ class StudentFirebaseApi {
 
   static Future<void> setStudentData() async {
     String key = db.push().key!;
-    await db.child(key).set(studentPostList);
+
+    for (int i = 0; i < studentPostList.length; i++) {
+      await db.child(key).set(studentPostList[i]);
+    }
   }
 }

@@ -7,6 +7,8 @@ class TeacherFirebaseApi {
   static Future<void> setTeacherData() async {
     String key = db.push().key!;
 
-    await db.child(key).set(commonTeacherCardList);
+    for (int i = 0; i < commonTeacherCardList.length; i++) {
+      await db.child(key).set(commonTeacherCardList[i]);
+    }
   }
 }
