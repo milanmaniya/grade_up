@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_teacher_card_model.dart';
 import 'package:grade_up/common_widget/common_teacher_card.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/provider_screen/teacher_favourite_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
+import 'package:provider/provider.dart';
 
 class AllTeacherScreen extends StatefulWidget {
   const AllTeacherScreen({super.key});
@@ -12,11 +14,10 @@ class AllTeacherScreen extends StatefulWidget {
 }
 
 class _AllTeacherScreenState extends State<AllTeacherScreen> {
-  List<bool> isFavourite=
-      List.generate(commonTeacherCardList.length, (index) => false);
-
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<TeacherFavouriteProvider>(context);
+    final indexList = provider.teacherFavourite;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ConstraintData.bgAppBarColor,
@@ -39,16 +40,11 @@ class _AllTeacherScreenState extends State<AllTeacherScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: ListView.builder(
-          itemCount: commonTeacherCardList.length,
+          itemCount: indexList.length,
           itemBuilder: (context, index) => commonTeacherCard(
-            isFavourite: isFavourite[index],
+            isFavourite: provider.isExit(index),
             fun: () {
-              if (isFavourite[index]) {
-                isFavourite[index] = !isFavourite[index];
-              } else {
-                isFavourite[index] = !isFavourite[index];
-              }
-              setState(() {});
+              provider.toggleFavourite(index);
             },
             teacherName: commonTeacherCardList[index].teacherName,
             experience: commonTeacherCardList[index].experience,
