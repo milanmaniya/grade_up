@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:giffy_dialog/giffy_dialog.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/online_course_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/tuition_screen.dart';
@@ -31,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           prefixIcon: Icons.menu_open_rounded,
           fun1: () {},
           fun2: () {
-             showDialog(
+            showDialog(
               context: context,
               builder: (BuildContext context) {
                 return GiffyDialog.image(
