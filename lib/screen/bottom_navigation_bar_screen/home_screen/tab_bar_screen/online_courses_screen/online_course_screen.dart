@@ -5,6 +5,8 @@ import 'package:grade_up/common_widget/common_course_tag.dart';
 import 'package:grade_up/firebase_api/student_firebase_api/student_firebase_api.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/language.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/latest_courses_screen.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/provider_screen/isfavourite_provider.dart';
+import 'package:provider/provider.dart';
 
 class OnlineCourseScreen extends StatefulWidget {
   const OnlineCourseScreen({super.key});
@@ -14,8 +16,6 @@ class OnlineCourseScreen extends StatefulWidget {
 }
 
 class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
-  List<bool> isFavourite = List.generate(6, (index) => false);
-
   @override
   void initState() {
     StudentFirebaseApi.setStudentData();
@@ -24,6 +24,8 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<FavouriteProvider>(context);
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -52,14 +54,9 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                     ),
                   );
                 },
-                isFavourite: isFavourite[0],
+                isFavourite: provider.isExit(0),
                 fun: () {
-                  if (isFavourite[0]) {
-                    isFavourite[0] = !isFavourite[0];
-                  } else {
-                    isFavourite[0] = !isFavourite[0];
-                  }
-                  setState(() {});
+                  provider.toggleFavourite(0);
                 },
                 imageUrl: courseCardList[0].image,
                 subjectName: courseCardList[0].subject,
@@ -68,7 +65,6 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                 context: context,
               ),
               commonCourseCard(
-                isFavourite: isFavourite[1],
                 cardFun: () {
                   Navigator.push(
                     context,
@@ -78,13 +74,9 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                     ),
                   );
                 },
+                isFavourite: provider.isExit(1),
                 fun: () {
-                  if (isFavourite[1]) {
-                    isFavourite[1] = !isFavourite[1];
-                  } else {
-                    isFavourite[1] = !isFavourite[1];
-                  }
-                  setState(() {});
+                  provider.toggleFavourite(1);
                 },
                 imageUrl: courseCardList[1].image,
                 subjectName: courseCardList[1].subject,
@@ -97,7 +89,14 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
           commonCourseTag(
             tagName: 'Best Seller Courses',
             buttonName: 'See More',
-            fun: () {},
+            fun: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LatestCourseScreen(),
+                ),
+              );
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -112,14 +111,9 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                     ),
                   );
                 },
-                isFavourite: isFavourite[2],
+                isFavourite: provider.isExit(2),
                 fun: () {
-                  if (isFavourite[2]) {
-                    isFavourite[2] = !isFavourite[2];
-                  } else {
-                    isFavourite[2] = !isFavourite[2];
-                  }
-                  setState(() {});
+                  provider.toggleFavourite(2);
                 },
                 imageUrl: courseCardList[2].image,
                 subjectName: courseCardList[2].subject,
@@ -137,14 +131,9 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                     ),
                   );
                 },
-                isFavourite: isFavourite[3],
+                isFavourite: provider.isExit(3),
                 fun: () {
-                  if (isFavourite[3]) {
-                    isFavourite[3] = !isFavourite[3];
-                  } else {
-                    isFavourite[3] = !isFavourite[3];
-                  }
-                  setState(() {});
+                  provider.toggleFavourite(3);
                 },
                 imageUrl: courseCardList[3].image,
                 subjectName: courseCardList[3].subject,
@@ -157,7 +146,14 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
           commonCourseTag(
             tagName: 'Most Popular Courses',
             buttonName: 'See More',
-            fun: () {},
+            fun: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LatestCourseScreen(),
+                ),
+              );
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -172,14 +168,9 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                     ),
                   );
                 },
-                isFavourite: isFavourite[4],
+                isFavourite: provider.isExit(4),
                 fun: () {
-                  if (isFavourite[4]) {
-                    isFavourite[4] = !isFavourite[4];
-                  } else {
-                    isFavourite[4] = !isFavourite[4];
-                  }
-                  setState(() {});
+                  provider.toggleFavourite(4);
                 },
                 imageUrl: courseCardList[4].image,
                 subjectName: courseCardList[4].subject,
@@ -197,14 +188,9 @@ class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
                     ),
                   );
                 },
-                isFavourite: isFavourite[5],
+                isFavourite: provider.isExit(5),
                 fun: () {
-                  if (isFavourite[5]) {
-                    isFavourite[5] = !isFavourite[5];
-                  } else {
-                    isFavourite[5] = !isFavourite[5];
-                  }
-                  setState(() {});
+                  provider.toggleFavourite(5);
                 },
                 imageUrl: courseCardList[5].image,
                 subjectName: courseCardList[5].subject,

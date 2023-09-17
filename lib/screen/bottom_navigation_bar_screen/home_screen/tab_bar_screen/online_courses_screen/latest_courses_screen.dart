@@ -3,7 +3,9 @@ import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_course_card.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/language.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/provider_screen/isfavourite_provider.dart';
 import 'package:grade_up/utils/constraint_data.dart';
+import 'package:provider/provider.dart';
 
 class LatestCourseScreen extends StatefulWidget {
   const LatestCourseScreen({super.key});
@@ -13,10 +15,10 @@ class LatestCourseScreen extends StatefulWidget {
 }
 
 class _LatestCourseScreenState extends State<LatestCourseScreen> {
-  List<bool> isFavourite = List.generate(6, (index) => false);
-
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<FavouriteProvider>(context);
+
     return Scaffold(
       backgroundColor: ConstraintData.bgColor,
       appBar: AppBar(
@@ -46,14 +48,9 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
                   ),
                 );
               },
-              isFavourite: isFavourite[index],
+              isFavourite: provider.isExit(index),
               fun: () {
-                if (isFavourite[index]) {
-                  isFavourite[index] = !isFavourite[index];
-                } else {
-                  isFavourite[index] = !isFavourite[index];
-                }
-                setState(() {});
+                provider.toggleFavourite(index);
               },
               imageUrl: courseCardList[index].image,
               subjectName: courseCardList[index].subject,
