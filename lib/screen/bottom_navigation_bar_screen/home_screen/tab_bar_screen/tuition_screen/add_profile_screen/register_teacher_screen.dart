@@ -99,20 +99,22 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  commonTeacherCardList.add(
-                    TeacherCard(
-                      image: 'assets/prof_cplus.jpg',
-                      subject:
-                          TeacherRegController.regTeacherControllerList[1].text,
-                      teacherName:
-                          TeacherRegController.regTeacherControllerList[0].text,
-                      experience:
-                          TeacherRegController.regTeacherControllerList[5].text,
-                      rate: '3.5',
-                      review: ' 7 Reviews ',
-                    ),
-                  );
-                  Navigator.pop(context);
+                  if (TeacherRegController.key.currentState!.validate()) {
+                    commonTeacherCardList.add(
+                      TeacherCard(
+                        image: 'assets/prof_cplus.jpg',
+                        subject: TeacherRegController
+                            .regTeacherControllerList[1].text,
+                        teacherName: TeacherRegController
+                            .regTeacherControllerList[0].text,
+                        experience: TeacherRegController
+                            .regTeacherControllerList[5].text,
+                        rate: '3.5',
+                        review: ' 7 Reviews ',
+                      ),
+                    );
+                    Navigator.pop(context);
+                  }
                 },
                 child: Container(
                   margin: const EdgeInsets.only(

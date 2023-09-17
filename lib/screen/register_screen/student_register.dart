@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_controller/register_controller/common_text_editing_controller.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
+import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:grade_up/firebase_api/firebase_api.dart';
 import 'package:grade_up/utils/constraint_data.dart';
@@ -100,18 +101,27 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
               ),
               GestureDetector(
                 onTap: () async {
-                  await FirebaseApi.setUserData(
-                    userName: CommonRegController.regControllerList[0].text,
-                    mobNum: CommonRegController.regControllerList[1].text,
-                    email: CommonRegController.regControllerList[2].text,
-                    age: CommonRegController.regControllerList[3].text,
-                    gender: CommonRegController.regControllerList[4].text,
-                    address: CommonRegController.regControllerList[5].text,
-                    pass: CommonRegController.regControllerList[6].text,
-                  ).then((value) {
-                    CommonRegController.regControllerList.clear();
-                    Navigator.pop(context);
-                  });
+                  if (CommonRegController.key.currentState!.validate()) {
+                    if (CommonRegController.regControllerList[6].text ==
+                        CommonRegController.regControllerList[7].text) {
+                      await FirebaseApi.setUserData(
+                        userName: CommonRegController.regControllerList[0].text,
+                        mobNum: CommonRegController.regControllerList[1].text,
+                        email: CommonRegController.regControllerList[2].text,
+                        age: CommonRegController.regControllerList[3].text,
+                        gender: CommonRegController.regControllerList[4].text,
+                        address: CommonRegController.regControllerList[5].text,
+                        pass: CommonRegController.regControllerList[6].text,
+                      ).then((value) {
+                        CommonRegController.regControllerList.clear();
+                        Navigator.pop(context);
+                      });
+                    } else {
+                      CommonToast().showMessage(
+                          message:
+                              'Password and Conform password are different. Please enter the right password !');
+                    }
+                  }
                 },
                 child: Container(
                   margin: const EdgeInsets.only(

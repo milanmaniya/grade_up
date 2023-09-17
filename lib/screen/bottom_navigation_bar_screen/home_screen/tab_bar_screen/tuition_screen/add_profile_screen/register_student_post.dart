@@ -94,24 +94,26 @@ class _RegisterStudentPostScreenState extends State<RegisterStudentPostScreen> {
               ),
               GestureDetector(
                 onTap: () {
-                  studentPostList.add(
-                    StudentPost(
-                      image: 'assets/student_6.jpg',
-                      subject:
-                          StudentRegController.regStudentControllerList[3].text,
-                      totalDays:
-                          StudentRegController.regStudentControllerList[2].text,
-                      className:
-                          StudentRegController.regStudentControllerList[1].text,
-                      location:
-                          StudentRegController.regStudentControllerList[5].text,
-                      studentName:
-                          StudentRegController.regStudentControllerList[0].text,
-                      message:
-                          StudentRegController.regStudentControllerList[4].text,
-                    ),
-                  );
-                  Navigator.pop(context);
+                  if (StudentRegController.key.currentState!.validate()) {
+                    studentPostList.add(
+                      StudentPost(
+                        image: 'assets/student_6.jpg',
+                        subject: StudentRegController
+                            .regStudentControllerList[3].text,
+                        totalDays: StudentRegController
+                            .regStudentControllerList[2].text,
+                        className: StudentRegController
+                            .regStudentControllerList[1].text,
+                        location: StudentRegController
+                            .regStudentControllerList[5].text,
+                        studentName: StudentRegController
+                            .regStudentControllerList[0].text,
+                        message: StudentRegController
+                            .regStudentControllerList[4].text,
+                      ),
+                    );
+                    Navigator.pop(context);
+                  }
                 },
                 child: Container(
                   margin: const EdgeInsets.only(
