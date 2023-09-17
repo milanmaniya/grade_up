@@ -30,7 +30,38 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           context: context,
           prefixIcon: Icons.menu_open_rounded,
           fun1: () {},
-          fun2: () {},
+          fun2: () {
+             showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return GiffyDialog.image(
+                  Image.network(
+                    "https://raw.githubusercontent.com/Shashank02051997/FancyGifDialog-Android/master/GIF's/gif14.gif",
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
+                  title: const Text(
+                    'Image Animation',
+                    textAlign: TextAlign.center,
+                  ),
+                  content: const Text(
+                    'This is a image animation dialog box. This library helps you easily create fancy giffy dialog.',
+                    textAlign: TextAlign.center,
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'CANCEL'),
+                      child: const Text('CANCEL'),
+                    ),
+                    TextButton(
+                      onPressed: () => Navigator.pop(context, 'OK'),
+                      child: const Text('OK'),
+                    ),
+                  ],
+                );
+              },
+            );
+          },
           tagName: 'Menu',
           actionFirstIcon: Icons.search,
           actionSecondIcon: Icons.notifications,
