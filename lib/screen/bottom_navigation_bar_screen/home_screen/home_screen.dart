@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/search_screen/course_search_screen.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/search_screen/student_searching_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/search_screen/teacher_searching_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/online_course_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/tuition_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
+import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,109 +37,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           prefixIcon: Icons.menu_open_rounded,
           fun1: () {},
           fun2: () {
-            showModalBottomSheet(
-              elevation: 5,
-              backgroundColor: Colors.grey.shade300,
-              isScrollControlled: true,
-              isDismissible: true,
-              shape: ContinuousRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              context: context,
-              builder: (context) => SizedBox(
-                height: 300,
-                width: context.screenWidth,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 15, horizontal: 7),
-                        child: Text(
-                          'Search Data',
-                          style: GoogleFonts.lato(
-                            color: Colors.black,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.brown.shade50),
-                          minimumSize: MaterialStateProperty.all(
-                            Size(context.screenWidth, 50),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const TeacherSearchScreen(),
-                            ),
-                          );
-                        },
-                        child: Text(
-                          'Search For Teacher',
-                          style: GoogleFonts.lato(
-                            color: Colors.black54,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.brown.shade50),
-                          minimumSize: MaterialStateProperty.all(
-                            Size(context.screenWidth, 50),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Text(
-                          'Search For Student',
-                          style: GoogleFonts.lato(
-                            color: Colors.black54,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.brown.shade50),
-                          minimumSize: MaterialStateProperty.all(
-                            Size(context.screenWidth, 50),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Text(
-                          'Search For Courses',
-                          style: GoogleFonts.lato(
-                            color: Colors.black54,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            );
+            bottomSheet(context);
           },
           tagName: 'Menu',
           actionFirstIcon: Icons.search,
@@ -196,6 +97,117 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Future<dynamic> bottomSheet(BuildContext context) {
+    return showModalBottomSheet(
+      elevation: 5,
+      backgroundColor: Colors.grey.shade300,
+      isScrollControlled: true,
+      isDismissible: true,
+      shape: ContinuousRectangleBorder(
+        borderRadius: BorderRadius.circular(30),
+      ),
+      context: context,
+      builder: (context) => SizedBox(
+        height: 450,
+        width: context.screenWidth,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              Lottie.asset(
+                'json/search_screen.json',
+                height: 230,
+                repeat: true,
+                reverse: true,
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.brown.shade50),
+                  minimumSize: MaterialStateProperty.all(
+                    Size(context.screenWidth, 50),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TeacherSearchScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Search For Teacher',
+                  style: GoogleFonts.lato(
+                    color: Colors.black54,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.brown.shade50),
+                  minimumSize: MaterialStateProperty.all(
+                    Size(context.screenWidth, 50),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const StudentSearchingScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Search For Student',
+                  style: GoogleFonts.lato(
+                    color: Colors.black54,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(Colors.brown.shade50),
+                  minimumSize: MaterialStateProperty.all(
+                    Size(context.screenWidth, 50),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CourseSearchScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Search For Courses',
+                  style: GoogleFonts.lato(
+                    color: Colors.black54,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

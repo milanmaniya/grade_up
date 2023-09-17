@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grade_up/common_model/common_teacher_card_model.dart';
-import 'package:grade_up/common_widget/common_teacher_card.dart';
+import 'package:grade_up/common_model/common_student_post_model.dart';
+import 'package:grade_up/common_widget/common_student_post_card.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 import 'package:lottie/lottie.dart';
 
-class TeacherSearchScreen extends StatefulWidget {
-  const TeacherSearchScreen({super.key});
+class StudentSearchingScreen extends StatefulWidget {
+  const StudentSearchingScreen({super.key});
 
   @override
-  State<TeacherSearchScreen> createState() => _TeacherSearchScreenState();
+  State<StudentSearchingScreen> createState() => _StudentSearchingScreenState();
 }
 
-class _TeacherSearchScreenState extends State<TeacherSearchScreen> {
+class _StudentSearchingScreenState extends State<StudentSearchingScreen> {
   TextEditingController txtNameController = TextEditingController();
 
-  List<TeacherCard> updatedList = [];
+  List<StudentPost> updatedList = [];
 
   void searchData(String value) {
     setState(() {
-      updatedList = commonTeacherCardList
+      updatedList = studentPostList
           .where((element) =>
-              element.teacherName.toLowerCase().contains(value.toLowerCase()))
+              element.studentName.toLowerCase().contains(value.toLowerCase()))
           .toList();
     });
   }
 
   @override
   void initState() {
-    updatedList = commonTeacherCardList;
+    updatedList = studentPostList;
     super.initState();
   }
 
@@ -72,15 +72,16 @@ class _TeacherSearchScreenState extends State<TeacherSearchScreen> {
             ),
             updatedList.isNotEmpty
                 ? Expanded(
-                    child: ListView.builder(
+                    child:  ListView.builder(
                       itemCount: updatedList.length,
-                      itemBuilder: (context, index) => commonTeacherCard(
-                        teacherName: updatedList[index].teacherName,
-                        experience: updatedList[index].experience,
+                      itemBuilder: (context, index) => commonStudentPostCard(
+                        message: updatedList[index].message,
+                        className: updatedList[index].className,
+                        totalDay: updatedList[index].totalDays,
                         subject: updatedList[index].subject,
-                        rate: updatedList[index].rate,
-                        reviews: updatedList[index].review,
                         imageUrl: updatedList[index].image,
+                        studentName: updatedList[index].studentName,
+                        location: updatedList[index].location,
                       ),
                     ),
                   )
