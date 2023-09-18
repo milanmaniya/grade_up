@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grade_up/screen/welcome_screen.dart';
+import 'package:grade_up/splash_services/splash_services.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreenPage extends StatefulWidget {
@@ -10,10 +10,13 @@ class SplashScreenPage extends StatefulWidget {
 }
 
 class _SplashScreenPageState extends State<SplashScreenPage> {
+  SplashServices services = SplashServices();
+
   @override
   void initState() {
+    services.isLogin(context);
     super.initState();
-    animation();
+    // animation();
   }
 
   @override
@@ -31,19 +34,19 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     );
   }
 
-  Future<void> animation() async {
-    await Future.delayed(
-      const Duration(
-        seconds: 6,
-      ),
-    );
-    setState(() {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const WelcomeScreenPage(),
-        ),
-      );
-    });
-  }
+  // Future<void> animation() async {
+  //   await Future.delayed(
+  //     const Duration(
+  //       seconds: 6,
+  //     ),
+  //   );
+  //   setState(() {
+  //     Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => const WelcomeScreenPage(),
+  //       ),
+  //     );
+  //   });
+  // }
 }
