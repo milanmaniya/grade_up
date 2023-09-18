@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_text.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:grade_up/firebase_api/firebase_api.dart';
 import 'package:grade_up/screen/login_screen/login_screen.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AccountScreen extends StatefulWidget {
   const AccountScreen({super.key});
@@ -13,6 +16,20 @@ class AccountScreen extends StatefulWidget {
 }
 
 class _AccountScreenState extends State<AccountScreen> {
+  File? file;
+
+  Future<void> selecteImageFromGallery() async {
+    ImagePicker pickImageData = ImagePicker();
+
+    XFile? xfile = await pickImageData.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 100,
+    );
+
+    file = xfile != null ? File(xfile.path) : null;
+    setState(() {});
+  }
+
   late Future<List<Map>> futureUserData;
 
   String key = '';
@@ -73,11 +90,11 @@ class _AccountScreenState extends State<AccountScreen> {
                     width: 5,
                   ),
                   shape: BoxShape.circle,
-                  image: const DecorationImage(
-                    filterQuality: FilterQuality.high,
-                    fit: BoxFit.cover,
-                    image: AssetImage('assets/prof_cplus.jpg'),
-                  ),
+                ),
+                child: Image.asset(
+                  'assets/prof_cplus.jpg',
+                  filterQuality: FilterQuality.high,
+                  fit: BoxFit.cover,
                 ),
               ),
             ],
