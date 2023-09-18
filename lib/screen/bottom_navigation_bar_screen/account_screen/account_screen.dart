@@ -45,30 +45,15 @@ class _AccountScreenState extends State<AccountScreen> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 50),
+                          horizontal: 20, vertical: 60),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: const CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 18,
-                              child: Icon(
-                                Icons.arrow_back,
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 50,
-                          ),
                           Text(
                             'Account',
                             style: GoogleFonts.lato(
                               color: Colors.white,
-                              fontSize: 24,
+                              fontSize: 30,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

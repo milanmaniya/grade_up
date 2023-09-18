@@ -4,6 +4,8 @@ import 'package:firebase_database/firebase_database.dart';
 class FirebaseApi {
   static final DatabaseReference db = FirebaseDatabase.instance.ref('User');
 
+  static String? pho;
+
   static Future<void> setUserData({
     required String userName,
     required String mobNum,

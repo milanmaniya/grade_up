@@ -4,7 +4,6 @@ import 'package:grade_up/common_model/common_teacher_card_model.dart';
 import 'package:grade_up/common_controller/teacher_post_controller/common_teacher_register.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
-import 'package:grade_up/firebase_api/teacher_firebase_api/teacher_firebase_api.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
 class RegisterTeacherScreen extends StatefulWidget {
