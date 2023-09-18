@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_course_card.dart';
@@ -22,41 +23,51 @@ class _LatestCourseScreenState extends State<LatestCourseScreen> {
     return Scaffold(
       backgroundColor: ConstraintData.bgColor,
       appBar: AppBar(
-        bottom: commonAppBar(
-          context: context,
-          prefixIcon: Icons.arrow_back,
-          tagName: 'Latest Courses',
-          fun1: () {
+        backgroundColor: ConstraintData.bgAppBarColor,
+        leading: IconButton(
+          onPressed: () {
             Navigator.pop(context);
           },
-          actionFirstIcon: Icons.notifications,
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
+        title: Text(
+          'Latest Courses',
+          style: GoogleFonts.lato(
+            color: Colors.black,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        centerTitle: true,
       ),
-      body: Align(
-        alignment: Alignment.topCenter,
-        child: Wrap(
-          runSpacing: 10,
-          spacing: 5,
-          children: List.generate(
-            courseCardList.length,
-            (index) => commonCourseCard(
-              cardFun: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LanguageCourseScreen(index: index),
-                  ),
-                );
-              },
-              isFavourite: provider.isExit(index),
-              fun: () {
-                provider.toggleFavourite(index);
-              },
-              imageUrl: courseCardList[index].image,
-              subjectName: courseCardList[index].subject,
-              totalLeacture: courseCardList[index].totalleacture,
-              icon: Icons.favorite,
-              context: context,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Wrap(
+            runSpacing: 10,
+            spacing: 5,
+            children: List.generate(
+              courseCardList.length,
+              (index) => commonCourseCard(
+                cardFun: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LanguageCourseScreen(index: index),
+                    ),
+                  );
+                },
+                isFavourite: provider.isExit(index),
+                fun: () {
+                  provider.toggleFavourite(index);
+                },
+                imageUrl: courseCardList[index].image,
+                subjectName: courseCardList[index].subject,
+                totalLeacture: courseCardList[index].totalleacture,
+                icon: Icons.favorite,
+                context: context,
+              ),
             ),
           ),
         ),

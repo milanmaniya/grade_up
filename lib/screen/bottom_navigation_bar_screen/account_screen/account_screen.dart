@@ -82,9 +82,13 @@ class _AccountScreenState extends State<AccountScreen> {
                 alignment: Alignment.topCenter,
                 height: 140,
                 width: 140,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.white,
+                    width: 5,
+                  ),
                   shape: BoxShape.circle,
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     filterQuality: FilterQuality.high,
                     fit: BoxFit.cover,
                     image: AssetImage('assets/prof_cplus.jpg'),
@@ -102,49 +106,59 @@ class _AccountScreenState extends State<AccountScreen> {
               if (snapshot.hasData) {
                 key = snapshot.data![0]['key'];
                 return Container(
+                  height: 280,
                   width: context.screenWidth * 0.9,
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          commonText(data: "Student Name", size: 17),
-                          commonText(data: "Mobile No", size: 17),
-                          commonText(data: "Email", size: 17),
-                          commonText(data: "Age", size: 17),
-                          commonText(data: "Gender", size: 17),
-                          commonText(data: "Address", size: 17),
-                        ],
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          commonText(
-                              data: ":- ${snapshot.data![0]['userName']}",
-                              size: 17),
-                          commonText(
-                              data: ":- ${snapshot.data![0]['mobNum']}",
-                              size: 17),
-                          commonText(
-                              data: ":- ${snapshot.data![0]['email']}",
-                              size: 17),
-                          commonText(
-                              data: ":- ${snapshot.data![0]['age']}", size: 17),
-                          commonText(
-                              data: ":- ${snapshot.data![0]['gender']}",
-                              size: 17),
-                          commonText(
-                              data: ":- ${snapshot.data![0]['address']}",
-                              size: 17),
-                        ],
-                      ),
-                    ],
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            commonText(data: "Student Name", size: 17),
+                            commonText(data: "Mobile No", size: 17),
+                            commonText(data: "Email", size: 17),
+                            commonText(data: "Age", size: 17),
+                            commonText(data: "Gender", size: 17),
+                            commonText(data: "Address", size: 17),
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            commonText(
+                                data: ":- \t${snapshot.data![0]['userName']}",
+                                size: 17),
+                            commonText(
+                                data: ":- \t${snapshot.data![0]['mobNum']}",
+                                size: 17),
+                            commonText(
+                                data: ":- \t${snapshot.data![0]['email']}",
+                                size: 17),
+                            commonText(
+                                data: ":- \t${snapshot.data![0]['age']}",
+                                size: 17),
+                            commonText(
+                                data: ":- \t${snapshot.data![0]['gender']}",
+                                size: 17),
+                            commonText(
+                                data: ":- \t${snapshot.data![0]['address']}",
+                                size: 17),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 );
               } else {

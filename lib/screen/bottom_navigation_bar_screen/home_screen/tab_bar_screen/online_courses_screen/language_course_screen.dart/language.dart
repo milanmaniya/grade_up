@@ -5,6 +5,7 @@ import 'package:grade_up/common_model/common_card_model.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/leacture_screen/leactures_screen.dart';
+import 'package:grade_up/utils/constraint_data.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -39,32 +40,29 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // var options = {
-    //   'key': 'rzp_test_PPC0qcP98CxuXa',
-    //   'amount': 100,
-    //   'name': 'Grade Up',
-    //   'description': courseCardList[widget.index!].subject,
-    //   'prefill': {
-    //     'contact': CommonValue.phNumberValue,
-    //     'email': 'gradeup@razorpay.com',
-    //   }
-    // };
-
     return Scaffold(
       appBar: AppBar(
-        bottom: commonAppBar(
-          context: context,
-          prefixIcon: Icons.arrow_back,
-          tagName: 'Courses',
-          fun1: () {
+        toolbarHeight: 70,
+        backgroundColor: ConstraintData.bgAppBarColor,
+        leading: IconButton(
+          onPressed: () {
             Navigator.pop(context);
           },
-          actionFirstIcon: Icons.favorite,
+          icon: const Icon(Icons.arrow_back_rounded),
         ),
+        title: Text(
+          courseCardList[widget.index!].subject,
+          style: GoogleFonts.lato(
+            color: Colors.black,
+            fontSize: 25,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

@@ -34,6 +34,7 @@ class _StudentPostSeeMoreState extends State<StudentPostSeeMore> {
         centerTitle: true,
       ),
       body: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
         itemCount: studentPostList.length,
         itemBuilder: (context, index) => commonStudentPostCard(
           message: studentPostList[index].message,
