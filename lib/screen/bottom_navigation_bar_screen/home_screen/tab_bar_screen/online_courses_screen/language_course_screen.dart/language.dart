@@ -2,12 +2,11 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_card_model.dart';
-import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/common_widget/common_toast.dart';
+import 'package:grade_up/common_widget/common_value.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/online_courses_screen/language_course_screen.dart/leacture_screen/leactures_screen.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LanguageCourseScreen extends StatefulWidget {
   const LanguageCourseScreen({super.key, required this.index});
@@ -23,7 +22,7 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
 
   @override
   void initState() {
-    getValue();
+    // getValue();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
@@ -40,6 +39,17 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var options = {
+      'key': 'rzp_test_PPC0qcP98CxuXa',
+      'amount': 100,
+      'name': 'Grade Up',
+      'description': courseCardList[widget.index!].subject,
+      'prefill': {
+        'contact': CommonValue.phNumberValue,
+        'email': 'gradeup@razorpy.com'
+      }
+    };
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
@@ -293,33 +303,34 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                   minimumSize: MaterialStateProperty.all(
                       const Size(double.infinity, 50)),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LeactureScreen(
-                        index: widget.index,
-                      ),
-                    ),
-                  );
-                },
-                // onPressed: paymentId == null
-                // () {
-                //         _razorpay.open(options);
-                //         setState(() {});
-                //       }:
-                //      () {
-                //         Navigator.push(
-                //           context,
-                //           MaterialPageRoute(
-                //             builder: (context) => const LeactureScreen(),
-                //           ),
-                //         );
-                //         setState(() {});
-                //       },
-
+                onPressed: paymentId == null
+                    ? () {
+                        _razorpay.open(options);
+                        setState(() {});
+                      }
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LeactureScreen(
+                              index: widget.index,
+                            ),
+                          ),
+                        );
+                        setState(() {});
+                      },
+                // onPressed: () {
+                //   Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => LeactureScreen(
+                //         index: widget.index,
+                //       ),
+                //     ),
+                //   );
+                // },
                 child: Text(
-                  'Leacture',
+                  paymentId == null ? 'Buy Course' : 'Leacture',
                   style: GoogleFonts.lato(
                     color: Colors.white,
                     fontSize: 18,
@@ -335,10 +346,10 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
   }
 
   _handlePaymentSuccess(PaymentSuccessResponse response) async {
-    // paymentId = response.paymentId!;
+    paymentId = response.paymentId!;
 
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setString('paymentId', response.paymentId!);
+    // SharedPreferences pref = await SharedPreferences.getInstance();
+    // pref.setString('paymentId', response.paymentId!);
 
     log(paymentId!);
     CommonToast().showMessage(
@@ -354,8 +365,8 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
     log(response.walletName!);
   }
 
-  void getValue() async {
-    SharedPreferences pre = await SharedPreferences.getInstance();
-    paymentId = pre.getString('paymentId');
-  }
+  // void getValue() async {
+  //   SharedPreferences pre = await SharedPreferences.getInstance();
+  //   paymentId = pre.getString('paymentId');
+  // }
 }
