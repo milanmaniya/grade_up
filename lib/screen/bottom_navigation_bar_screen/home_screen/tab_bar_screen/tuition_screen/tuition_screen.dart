@@ -21,12 +21,6 @@ class TuitionScreen extends StatefulWidget {
 
 class _TuitionScreenState extends State<TuitionScreen> {
   @override
-  void initState() {
-   
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TeacherFavouriteProvider>(context);
 

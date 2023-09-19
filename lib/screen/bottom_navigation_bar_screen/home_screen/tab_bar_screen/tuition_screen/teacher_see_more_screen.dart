@@ -17,7 +17,6 @@ class _AllTeacherScreenState extends State<AllTeacherScreen> {
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TeacherFavouriteProvider>(context);
-    final indexList = provider.teacherFavourite;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: ConstraintData.bgAppBarColor,
@@ -37,22 +36,19 @@ class _AllTeacherScreenState extends State<AllTeacherScreen> {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: ListView.builder(
-          itemCount: indexList.length,
-          itemBuilder: (context, index) => commonTeacherCard(
-            isFavourite: provider.isExit(index),
-            fun: () {
-              provider.toggleFavourite(index);
-            },
-            teacherName: commonTeacherCardList[index].teacherName,
-            experience: commonTeacherCardList[index].experience,
-            subject: commonTeacherCardList[index].subject,
-            rate: commonTeacherCardList[index].rate,
-            reviews: commonTeacherCardList[index].review,
-            imageUrl: commonTeacherCardList[index].image,
-          ),
+      body: ListView.builder(
+        itemCount: commonTeacherCardList.length,
+        itemBuilder: (context, index) => commonTeacherCard(
+          isFavourite: provider.isExit(index),
+          fun: () {
+            provider.toggleFavourite(index);
+          },
+          teacherName: commonTeacherCardList[index].teacherName,
+          experience: commonTeacherCardList[index].experience,
+          subject: commonTeacherCardList[index].subject,
+          rate: commonTeacherCardList[index].rate,
+          reviews: commonTeacherCardList[index].review,
+          imageUrl: commonTeacherCardList[index].image,
         ),
       ),
     );
