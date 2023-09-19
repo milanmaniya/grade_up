@@ -21,6 +21,7 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
   @override
   void initState() {
     super.initState();
+
     controller = YoutubePlayerController(
       initialVideoId: courseCardList[widget.courseIndex!]
           .videoPlayerList[widget.videoIndex!],
@@ -52,16 +53,23 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
         ),
         centerTitle: true,
       ),
-      body: YoutubePlayer(
-        controller: controller,
-        showVideoProgressIndicator: true,
-        progressColors: const ProgressBarColors(
-          playedColor: Colors.blue,
-          handleColor: Colors.blue,
+      body: YoutubePlayerBuilder(
+        player: YoutubePlayer(
+          controller: controller,
+          showVideoProgressIndicator: true,
+          progressColors: const ProgressBarColors(
+            playedColor: Colors.blue,
+            handleColor: Colors.blue,
+          ),
+          onReady: () {
+            controller.addListener(
+              () {},
+            );
+          },
         ),
-        onReady: () {
-          controller.addListener(() {});
-        },
+        builder: (context, player) => Column(
+          children: [player],
+        ),
       ),
     );
   }

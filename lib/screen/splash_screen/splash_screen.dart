@@ -16,7 +16,6 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   void initState() {
     services.isLogin(context);
     super.initState();
-    // animation();
   }
 
   @override
