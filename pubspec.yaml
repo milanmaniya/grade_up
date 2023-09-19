@@ -80,7 +80,8 @@ flutter:
   assets:
     - json/animation.json
     - json/data_not_found.json
-    - json\search_screen.json
+    - json/search_screen.json
+    - json/future_development.json
     - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see

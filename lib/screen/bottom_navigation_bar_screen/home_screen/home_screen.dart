@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_app_bar.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/notification_screen/notification_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/search_screen/course_search_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/search_screen/student_searching_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/search_screen/teacher_searching_screen.dart';
@@ -35,7 +36,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         bottom: commonAppBar(
           context: context,
           prefixIcon: Icons.menu_open_rounded,
-          fun1: () {},
+          fun1: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const NotificationScreen(),
+              ),
+            );
+          },
           fun2: () {
             bottomSheet(context);
           },

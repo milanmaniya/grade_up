@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:lottie/lottie.dart';
 
-class MessageScreen extends StatefulWidget {
-  const MessageScreen({super.key});
+class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({super.key});
 
   @override
-  State<MessageScreen> createState() => _MessageScreenState();
+  State<NotificationScreen> createState() => _NotificationScreenState();
 }
 
-class _MessageScreenState extends State<MessageScreen> {
+class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(
