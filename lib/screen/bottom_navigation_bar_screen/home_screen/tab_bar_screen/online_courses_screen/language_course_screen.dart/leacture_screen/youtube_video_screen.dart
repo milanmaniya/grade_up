@@ -68,7 +68,9 @@ class _YoutubePlayerScreenState extends State<YoutubePlayerScreen> {
           },
         ),
         builder: (context, player) => Column(
-          children: [player],
+          children: [
+            player,
+          ],
         ),
       ),
     );

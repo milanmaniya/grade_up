@@ -70,7 +70,7 @@ List<TeacherCard> commonTeacherCardList = [
   TeacherCard(
     image: 'assets/prof_web_desiging.jpg',
     subject: 'Web Designing',
-    teacherName: 'Minhazul Abedin',
+    teacherName: 'Milan Maniya',
     experience: '2',
     rate: '4.5',
     review: '20',
@@ -78,7 +78,7 @@ List<TeacherCard> commonTeacherCardList = [
   TeacherCard(
     image: 'assets/prof_python.jpg',
     subject: 'Python Programming',
-    teacherName: 'Minhazul Abedin',
+    teacherName: 'Harsh Sangani',
     experience: '4',
     rate: '4.1',
     review: '13',

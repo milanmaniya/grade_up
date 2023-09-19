@@ -5,7 +5,7 @@ import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar
 import 'package:grade_up/utils/constraint_data.dart';
 
 class LeactureScreen extends StatefulWidget {
-  const LeactureScreen({super.key,required this.index});
+  const LeactureScreen({super.key, required this.index});
 
   final int? index;
 
@@ -14,6 +14,8 @@ class LeactureScreen extends StatefulWidget {
 }
 
 class _LeactureScreenState extends State<LeactureScreen> {
+  List<String> urlLauncherList = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,23 +38,61 @@ class _LeactureScreenState extends State<LeactureScreen> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-        child: ListView.builder(
-          itemCount: courseCardList[widget.index!].videoPlayerList.length,
-          itemBuilder: (context, index) => ListTile(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => YoutubePlayerScreen(
-                    courseIndex: widget.index,
-                    videoIndex: index,
-                  ),
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.only(top: 15),
+                itemCount: courseCardList[widget.index!].videoPlayerList.length,
+                itemBuilder: (context, index) => ListTile(
+                  style: ListTileStyle.list,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => YoutubePlayerScreen(
+                          courseIndex: widget.index,
+                          videoIndex: index,
+                        ),
+                      ),
+                    );
+                  },
+                  title: Text('Leacture: $index'),
                 ),
-              );
-            },
-            title: Text('Leacture: $index'),
-          ),
+              ),
+            ),
+            ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blue),
+                minimumSize:
+                    MaterialStateProperty.all(const Size(double.infinity, 50)),
+              ),
+              onPressed: () {
+
+                setState(() {
+                  
+                });
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LeactureScreen(
+                      index: widget.index,
+                    ),
+                  ),
+                );
+              },
+              child: Text(
+                'See Playlist',
+                style: GoogleFonts.lato(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
