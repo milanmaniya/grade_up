@@ -286,12 +286,33 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                 height: 15,
               ),
               Container(
-                height: 100,
+                height: 170,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
                     color: Colors.black54,
                   ),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      'About: ',
+                      style: GoogleFonts.lato(
+                        color: Colors.black54,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "the online e-learning apps have strong and weak sides. They don't direct the students to jump through the hoops. With e-learning applications, a student gets a personalized curriculum and schedule. They help to fight back the imparity of education.",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.lato(
+                        color: Colors.black54,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -319,16 +340,6 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                         );
                         setState(() {});
                       },
-                // onPressed: () {
-                //   Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => LeactureScreen(
-                //         index: widget.index,
-                //       ),
-                //     ),
-                //   );
-                // },
                 child: Text(
                   paymentId == null ? 'Buy Course' : 'Leacture',
                   style: GoogleFonts.lato(
@@ -337,6 +348,9 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
             ],
           ),
