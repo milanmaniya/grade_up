@@ -5,7 +5,6 @@ import 'package:grade_up/common_model/common_teacher_card_model.dart';
 import 'package:grade_up/common_widget/common_course_tag.dart';
 import 'package:grade_up/common_widget/common_student_post_card.dart';
 import 'package:grade_up/common_widget/common_teacher_card.dart';
-import 'package:grade_up/firebase_api/teacher_firebase_api/teacher_firebase_api.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/add_profile_screen/register_student_post.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/add_profile_screen/register_teacher_screen.dart';
 import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar_screen/tuition_screen/provider_screen/teacher_favourite_screen.dart';
