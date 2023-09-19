@@ -18,7 +18,7 @@ class OnlineCourseScreen extends StatefulWidget {
 class _OnlineCourseScreenState extends State<OnlineCourseScreen> {
   @override
   void initState() {
-    StudentFirebaseApi.setStudentData();
+    
     super.initState();
   }
 

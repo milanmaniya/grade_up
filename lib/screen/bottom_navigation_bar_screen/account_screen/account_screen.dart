@@ -80,22 +80,21 @@ class _AccountScreenState extends State<AccountScreen> {
                   ],
                 ),
               ),
-              Container(
-                alignment: Alignment.topCenter,
-                height: 140,
-                width: 140,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.white,
-                    width: 5,
-                  ),
-                  shape: BoxShape.circle,
+              GestureDetector(
+                onTap: () {
+                  selecteImageFromGallery();
+                  setState(() {});
+                },
+                child: CircleAvatar(
+                  radius: 70,
+                  backgroundImage: file != null
+                      ? FileImage(file!)
+                      : const AssetImage('assets/prof_cplus.jpg')
+                          as ImageProvider,
                 ),
-                child: Image.asset(
-                  'assets/prof_cplus.jpg',
-                  filterQuality: FilterQuality.high,
-                  fit: BoxFit.cover,
-                ),
+              ),
+              const SizedBox(
+                height: 30,
               ),
             ],
           ),

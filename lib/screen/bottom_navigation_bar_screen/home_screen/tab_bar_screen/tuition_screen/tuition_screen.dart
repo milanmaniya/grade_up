@@ -23,7 +23,7 @@ class TuitionScreen extends StatefulWidget {
 class _TuitionScreenState extends State<TuitionScreen> {
   @override
   void initState() {
-    TeacherFirebaseApi.setTeacherData();
+   
     super.initState();
   }
 
