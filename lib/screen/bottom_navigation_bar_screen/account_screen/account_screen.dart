@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_text.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:grade_up/firebase_api/firebase_api.dart';
+import 'package:grade_up/screen/bottom_navigation_bar_screen/account_screen/edit_profile/edit_profile_screen.dart';
 import 'package:grade_up/screen/login_screen/login_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -200,6 +201,35 @@ class _AccountScreenState extends State<AccountScreen> {
                 );
               }
             },
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blue),
+                minimumSize: MaterialStateProperty.all(
+                  Size(context.screenWidth, 55),
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EditProfileScreen(
+                      keyName: key,
+                    ),
+                  ),
+                );
+              },
+              child: Text(
+                'Edit Profile',
+                style: GoogleFonts.lato(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),

@@ -28,6 +28,28 @@ class FirebaseApi {
     });
   }
 
+  static Future<void> updateData({
+    required String key,
+    required String userName,
+    required String mobNum,
+    required String email,
+    required String age,
+    required String gender,
+    required String address,
+    required String pass,
+  }) async {
+    await db.child(key).update({
+      'key': key,
+      'userName': userName,
+      'mobNum': mobNum,
+      'email': email,
+      'address': address,
+      'age': age,
+      'gender': gender,
+      'pass': pass
+    });
+  }
+
   static Future<List<Map>> selectData() async {
     Map data =
         await db.once().then((value) => value.snapshot.value as Map? ?? {});
