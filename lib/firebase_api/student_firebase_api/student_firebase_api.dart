@@ -5,10 +5,14 @@ class StudentFirebaseApi {
   static DatabaseReference db = FirebaseDatabase.instance.ref('student');
 
   static Future<void> setStudentData() async {
-
     for (int i = 0; i < studentPostList.length; i++) {
-    String key = db.push().key!;
+      String key = db.push().key!;
       await db.child(key).set(studentPostList[i].toJson());
     }
+  }
+
+  static Future<void> addStudent(StudentPost student) async {
+    String key = db.push().key!;
+    await db.child(key).set(student.toJson());
   }
 }

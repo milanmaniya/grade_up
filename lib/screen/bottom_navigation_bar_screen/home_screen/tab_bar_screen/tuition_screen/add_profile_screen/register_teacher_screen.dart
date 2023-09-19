@@ -101,19 +101,19 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
               GestureDetector(
                 onTap: () {
                   if (TeacherRegController.key.currentState!.validate()) {
-                    commonTeacherCardList.add(
-                      TeacherCard(
-                        image: 'assets/prof_cplus.jpg',
-                        subject: TeacherRegController
-                            .regTeacherControllerList[1].text,
-                        teacherName: TeacherRegController
-                            .regTeacherControllerList[0].text,
-                        experience: TeacherRegController
-                            .regTeacherControllerList[5].text,
-                        rate: '3.5',
-                        review: ' 7 Reviews ',
-                      ),
+                    final teacher = TeacherCard(
+                      image: 'assets/prof_cplus.jpg',
+                      subject:
+                          TeacherRegController.regTeacherControllerList[1].text,
+                      teacherName:
+                          TeacherRegController.regTeacherControllerList[0].text,
+                      experience:
+                          TeacherRegController.regTeacherControllerList[5].text,
+                      rate: '3.5',
+                      review: ' 7 Reviews ',
                     );
+
+                    commonTeacherCardList.add(teacher);
                     TeacherFirebaseApi.setTeacherData();
                     Navigator.pop(context);
                   }

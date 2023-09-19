@@ -4,6 +4,7 @@ import 'package:grade_up/common_controller/student_post_controller/student_post_
 import 'package:grade_up/common_model/common_student_post_model.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
+import 'package:grade_up/firebase_api/student_firebase_api/student_firebase_api.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
 class RegisterStudentPostScreen extends StatefulWidget {
@@ -95,23 +96,26 @@ class _RegisterStudentPostScreenState extends State<RegisterStudentPostScreen> {
               GestureDetector(
                 onTap: () {
                   if (StudentRegController.key.currentState!.validate()) {
-                    studentPostList.add(
-                      StudentPost(
-                        image: 'assets/student_6.jpg',
-                        subject: StudentRegController
-                            .regStudentControllerList[3].text,
-                        totalDays: StudentRegController
-                            .regStudentControllerList[2].text,
-                        className: StudentRegController
-                            .regStudentControllerList[1].text,
-                        location: StudentRegController
-                            .regStudentControllerList[5].text,
-                        studentName: StudentRegController
-                            .regStudentControllerList[0].text,
-                        message: StudentRegController
-                            .regStudentControllerList[4].text,
-                      ),
+                    final student = StudentPost(
+                      image: 'assets/student_6.jpg',
+                      subject:
+                          StudentRegController.regStudentControllerList[3].text,
+                      totalDays:
+                          StudentRegController.regStudentControllerList[2].text,
+                      className:
+                          StudentRegController.regStudentControllerList[1].text,
+                      location:
+                          StudentRegController.regStudentControllerList[5].text,
+                      studentName:
+                          StudentRegController.regStudentControllerList[0].text,
+                      message:
+                          StudentRegController.regStudentControllerList[4].text,
                     );
+
+                    studentPostList.add(student);
+
+                    StudentFirebaseApi.addStudent(student);
+
                     Navigator.pop(context);
                   }
                 },
@@ -132,7 +136,7 @@ class _RegisterStudentPostScreenState extends State<RegisterStudentPostScreen> {
                   ),
                   alignment: Alignment.center,
                   child: Text(
-                    "Register Teacher",
+                    "Register Student Post",
                     style: GoogleFonts.lato(
                       color: Colors.black,
                       fontSize: 20,

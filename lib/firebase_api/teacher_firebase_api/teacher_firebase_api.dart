@@ -10,4 +10,9 @@ class TeacherFirebaseApi {
       await db.child(key).set(commonTeacherCardList[i].toJson());
     }
   }
+
+  static Future<void> addTeacher(TeacherCard teacher) async {
+    String key = db.push().key!;
+    await db.child(key).set(teacher.toJson());
+  }
 }
