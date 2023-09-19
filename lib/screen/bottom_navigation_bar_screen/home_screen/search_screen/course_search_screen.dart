@@ -45,7 +45,7 @@ class _CourseSearchScreenState extends State<CourseSearchScreen> {
           icon: const Icon(Icons.arrow_back_rounded),
         ),
         title: Text(
-          'Search Teacher',
+          'Search Course',
           style: GoogleFonts.lato(
             color: Colors.black,
             fontSize: 25,

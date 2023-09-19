@@ -44,7 +44,7 @@ class _StudentSearchingScreenState extends State<StudentSearchingScreen> {
           icon: const Icon(Icons.arrow_back_rounded),
         ),
         title: Text(
-          'Search Teacher',
+          'Search Student Post',
           style: GoogleFonts.lato(
             color: Colors.black,
             fontSize: 25,
