@@ -136,7 +136,7 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
                       "id": id,
                     }).then((value) {
                       CommonToast().showMessage(
-                          message: 'Student Post Added Successfully...');
+                          message: 'Teacher Profile Added Successfully...');
                       Navigator.pop(context);
                     }).onError((error, stackTrace) {
                       CommonToast().showMessage(message: error.toString());

@@ -46,6 +46,22 @@ class _StudentPostSeeMoreState extends State<StudentPostSeeMore> {
           location: studentPostList[index].location,
         ),
       ),
+      // body: StreamBuilder(
+      //   stream: FirebaseFirestore.instance.collection('Student').doc().snapshots(),
+      //   builder: (context, snapshot) => ListView.builder(
+      //     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      //     itemCount: studentPostList.length,
+      //     itemBuilder: (context, index) => commonStudentPostCard(
+      //       message: snapshot.data![index]['message'],
+      //       className: snapshot.data![index]['className'],
+      //       totalDay: snapshot.data![index]['totalDays'],
+      //       subject: snapshot.data![index]['subject'],
+      //       imageUrl: snapshot.data![index]['image'],
+      //       studentName:snapshot.data![index]['studentName'] ,
+      //       location: snapshot.data![index]['location'],
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
