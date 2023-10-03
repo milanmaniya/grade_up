@@ -6,6 +6,7 @@ class StudentPost {
   String location;
   String studentName;
   String message;
+  String id;
 
   StudentPost({
     required this.image,
@@ -15,6 +16,7 @@ class StudentPost {
     required this.location,
     required this.studentName,
     required this.message,
+    required this.id,
   });
 
   factory StudentPost.fromJson(Map<String, dynamic> json) => StudentPost(
@@ -25,6 +27,7 @@ class StudentPost {
         location: json["location"],
         studentName: json["studentName"],
         message: json["message"],
+        id: json['id'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -35,6 +38,7 @@ class StudentPost {
         "location": location,
         "studentName": studentName,
         "message": message,
+        "id": id,
       };
 }
 
@@ -47,6 +51,7 @@ List<StudentPost> studentPostList = [
     location: 'Surat, India',
     studentName: 'Asadul',
     message: 'I Need A Good Teacher',
+    id: "0",
   ),
   StudentPost(
     image: 'assets/student_2.jpg',
@@ -56,6 +61,7 @@ List<StudentPost> studentPostList = [
     location: 'Vadodara, India',
     studentName: 'Jacob',
     message: 'Need A Good Teacher',
+    id: "1",
   ),
   StudentPost(
     image: 'assets/student_3.jpg',
@@ -65,6 +71,7 @@ List<StudentPost> studentPostList = [
     location: 'Mumbai, India',
     studentName: 'Albert',
     message: 'I Need A Good Teacher',
+    id: "2",
   ),
   StudentPost(
     image: 'assets/student_4.jpg',
@@ -74,6 +81,7 @@ List<StudentPost> studentPostList = [
     location: 'Surat, India',
     studentName: 'Kristin',
     message: 'I Need A Good Teacher',
+    id: "3",
   ),
   StudentPost(
     image: 'assets/stundet_5.jpg',
@@ -83,6 +91,7 @@ List<StudentPost> studentPostList = [
     location: 'Pune, India',
     studentName: 'Floyd',
     message: 'I Need A Good Teacher',
+    id: "4",
   ),
   StudentPost(
     image: 'assets/student_6.jpg',
@@ -92,5 +101,6 @@ List<StudentPost> studentPostList = [
     location: 'Chennai, India',
     studentName: 'Ralph',
     message: 'I Need A Good Teacher',
+    id: "5",
   ),
 ];

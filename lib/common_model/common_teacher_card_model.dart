@@ -5,6 +5,7 @@ class TeacherCard {
   String experience;
   String rate;
   String review;
+  String id;
 
   TeacherCard({
     required this.image,
@@ -13,6 +14,7 @@ class TeacherCard {
     required this.experience,
     required this.rate,
     required this.review,
+    required this.id,
   });
 
   factory TeacherCard.fromJson(Map<String, dynamic> json) => TeacherCard(
@@ -22,6 +24,7 @@ class TeacherCard {
         experience: json["experience"],
         rate: json["rate"],
         review: json["review"],
+        id: json['id'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -31,6 +34,7 @@ class TeacherCard {
         "experience": experience,
         "rate": rate,
         "review": review,
+        "id": id,
       };
 }
 
@@ -42,6 +46,7 @@ List<TeacherCard> commonTeacherCardList = [
     experience: '2',
     rate: '3.8',
     review: '8',
+    id: '0',
   ),
   TeacherCard(
     image: 'assets/prof_graphics.jpg',
@@ -50,6 +55,7 @@ List<TeacherCard> commonTeacherCardList = [
     experience: '3',
     rate: '4.0',
     review: '12',
+    id: '1',
   ),
   TeacherCard(
     image: 'assets/prof_c.jpg',
@@ -58,6 +64,7 @@ List<TeacherCard> commonTeacherCardList = [
     experience: '3',
     rate: '4.2',
     review: '16',
+    id: '2',
   ),
   TeacherCard(
     image: 'assets/prof_cplus.jpg',
@@ -66,6 +73,7 @@ List<TeacherCard> commonTeacherCardList = [
     experience: '1',
     rate: '3.2',
     review: '6',
+    id: '3',
   ),
   TeacherCard(
     image: 'assets/prof_web_desiging.jpg',
@@ -74,6 +82,7 @@ List<TeacherCard> commonTeacherCardList = [
     experience: '2',
     rate: '4.5',
     review: '20',
+    id: '4',
   ),
   TeacherCard(
     image: 'assets/prof_python.jpg',
@@ -82,5 +91,6 @@ List<TeacherCard> commonTeacherCardList = [
     experience: '4',
     rate: '4.1',
     review: '13',
+    id: '5',
   )
 ];

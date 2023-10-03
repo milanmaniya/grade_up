@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
-import 'package:grade_up/firebase_api/student_firebase_api/student_firebase_api.dart';
-import 'package:grade_up/firebase_api/teacher_firebase_api/teacher_firebase_api.dart';
 import 'package:grade_up/screen/login_screen/login_screen.dart';
 
 class WelcomeScreenPage extends StatefulWidget {
@@ -15,8 +13,7 @@ class WelcomeScreenPage extends StatefulWidget {
 class _WelcomeScreenPageState extends State<WelcomeScreenPage> {
   @override
   void initState() {
-    TeacherFirebaseApi.setTeacherData();
-    StudentFirebaseApi.setStudentData();
+    
     super.initState();
   }
 
