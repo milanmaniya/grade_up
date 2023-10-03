@@ -20,21 +20,14 @@ class LanguageCourseScreen extends StatefulWidget {
 class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
   final Razorpay _razorpay = Razorpay();
 
+  String paymentId = '';
+
   @override
   void initState() {
-    // getValue();
+    super.initState();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
-    super.initState();
-  }
-
-  String? paymentId;
-
-  @override
-  void dispose() {
-    _razorpay.clear();
-    super.dispose();
   }
 
   @override
@@ -324,7 +317,7 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                   minimumSize: MaterialStateProperty.all(
                       const Size(double.infinity, 50)),
                 ),
-                onPressed: paymentId == null
+                onPressed: paymentId.isEmpty
                     ? () {
                         _razorpay.open(options);
                         setState(() {});
@@ -341,7 +334,7 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
                         setState(() {});
                       },
                 child: Text(
-                  paymentId == null ? 'Buy Course' : 'Leacture',
+                  paymentId.isEmpty ? 'Buy Course' : 'Leacture',
                   style: GoogleFonts.lato(
                     color: Colors.white,
                     fontSize: 18,
@@ -359,16 +352,18 @@ class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
     );
   }
 
-  _handlePaymentSuccess(PaymentSuccessResponse response) async {
-    paymentId = response.paymentId!;
+  _handlePaymentSuccess(PaymentSuccessResponse response) {
+    setState(() {
+      paymentId = response.paymentId!;
+    });
 
     // SharedPreferences pref = await SharedPreferences.getInstance();
     // pref.setString('paymentId', response.paymentId!);
 
-    log(paymentId!);
+    log(paymentId);
+
     CommonToast().showMessage(
         message: 'Payment successfully completed\n ${response.paymentId}');
-    setState(() {});
   }
 
   _handlePaymentError(PaymentFailureResponse response) {
