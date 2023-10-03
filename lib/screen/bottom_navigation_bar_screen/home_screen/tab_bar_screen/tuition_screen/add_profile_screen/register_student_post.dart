@@ -1,10 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_controller/student_post_controller/student_post_controller.dart';
 import 'package:grade_up/common_model/common_student_post_model.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
+import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
-import 'package:grade_up/firebase_api/student_firebase_api/student_firebase_api.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
 class RegisterStudentPostScreen extends StatefulWidget {
@@ -96,6 +97,9 @@ class _RegisterStudentPostScreenState extends State<RegisterStudentPostScreen> {
               GestureDetector(
                 onTap: () {
                   if (StudentRegController.key.currentState!.validate()) {
+                    String id =
+                        DateTime.now().millisecondsSinceEpoch.toString();
+
                     final student = StudentPost(
                       image: 'assets/student_6.jpg',
                       subject:
@@ -110,13 +114,38 @@ class _RegisterStudentPostScreenState extends State<RegisterStudentPostScreen> {
                           StudentRegController.regStudentControllerList[0].text,
                       message:
                           StudentRegController.regStudentControllerList[4].text,
+                      id: id,
                     );
 
                     studentPostList.add(student);
 
-                    StudentFirebaseApi.addStudent(student);
+                    FirebaseFirestore.instance
+                        .collection('Student')
+                        .doc(id)
+                        .set({
+                      "image": 'assets/student_6.jpg',
+                      "subject":
+                          StudentRegController.regStudentControllerList[3].text,
+                      "totalDays":
+                          StudentRegController.regStudentControllerList[2].text,
+                      "className":
+                          StudentRegController.regStudentControllerList[1].text,
+                      "location":
+                          StudentRegController.regStudentControllerList[5].text,
+                      "studentName":
+                          StudentRegController.regStudentControllerList[0].text,
+                      "message":
+                          StudentRegController.regStudentControllerList[4].text,
+                      "id": id,
+                    }).then((value) {
+                      CommonToast().showMessage(
+                          message: 'Student Post Added Successfully...');
+                      Navigator.pop(context);
+                    }).onError((error, stackTrace) {
+                      CommonToast().showMessage(message: error.toString());
+                    });
 
-                    Navigator.pop(context);
+                    // StudentFirebaseApi.addStudent(student);
                   }
                 },
                 child: Container(

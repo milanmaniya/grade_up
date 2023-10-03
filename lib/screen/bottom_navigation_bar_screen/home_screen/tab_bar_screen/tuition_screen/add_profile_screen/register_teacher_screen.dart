@@ -1,10 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_teacher_card_model.dart';
 import 'package:grade_up/common_controller/teacher_post_controller/common_teacher_register.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
+import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
-import 'package:grade_up/firebase_api/teacher_firebase_api/teacher_firebase_api.dart';
 import 'package:grade_up/utils/constraint_data.dart';
 
 class RegisterTeacherScreen extends StatefulWidget {
@@ -101,6 +102,9 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
               GestureDetector(
                 onTap: () {
                   if (TeacherRegController.key.currentState!.validate()) {
+                    String id =
+                        DateTime.now().microsecondsSinceEpoch.toString();
+
                     final teacher = TeacherCard(
                       image: 'assets/prof_cplus.jpg',
                       subject:
@@ -111,11 +115,34 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
                           TeacherRegController.regTeacherControllerList[5].text,
                       rate: '3.5',
                       review: ' 7 Reviews ',
+                      id: id,
                     );
 
                     commonTeacherCardList.add(teacher);
-                    TeacherFirebaseApi.setTeacherData();
-                    Navigator.pop(context);
+
+                    FirebaseFirestore.instance
+                        .collection('Student')
+                        .doc(id)
+                        .set({
+                      "image": 'assets/prof_cplus.jpg',
+                      "subject":
+                          TeacherRegController.regTeacherControllerList[1].text,
+                      "teacherName":
+                          TeacherRegController.regTeacherControllerList[0].text,
+                      "experience":
+                          TeacherRegController.regTeacherControllerList[5].text,
+                      "rate": '3.5',
+                      "review": ' 7 Reviews ',
+                      "id": id,
+                    }).then((value) {
+                      CommonToast().showMessage(
+                          message: 'Student Post Added Successfully...');
+                      Navigator.pop(context);
+                    }).onError((error, stackTrace) {
+                      CommonToast().showMessage(message: error.toString());
+                    });
+
+                    // TeacherFirebaseApi.setTeacherData();
                   }
                 },
                 child: Container(
