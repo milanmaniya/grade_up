@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_widget/common_text.dart';
@@ -242,12 +241,11 @@ class _AccountScreenState extends State<AccountScreen> {
               ),
               onPressed: () {
                 FirebaseApi.removeData(key: key);
-                Navigator.pushAndRemoveUntil(
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const LoginScreen(),
                   ),
-                  (route) => false,
                 );
               },
               child: Text(
