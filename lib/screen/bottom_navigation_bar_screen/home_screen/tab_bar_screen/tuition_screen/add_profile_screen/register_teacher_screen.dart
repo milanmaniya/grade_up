@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_model/common_teacher_card_model.dart';
 import 'package:grade_up/common_controller/teacher_post_controller/common_teacher_register.dart';
@@ -58,42 +59,68 @@ class _RegisterTeacherScreenState extends State<RegisterTeacherScreen> {
                 ),
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Teacher name is required'),
+                ]),
                 icon: Icons.person,
                 nameOfField: "Teacher Name",
                 textEditingController:
                     TeacherRegController.regTeacherControllerList[0],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Student name is required'),
+                  RangeValidator(
+                      min: 10, max: 10, errorText: 'Range is not valid.'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Phone Number",
                 textEditingController:
                     TeacherRegController.regTeacherControllerList[1],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  EmailValidator(
+                      errorText: 'This Emaail is not aa valid format.'),
+                  RequiredValidator(errorText: 'Student name is required'),
+                ]),
                 icon: Icons.phone_android,
                 nameOfField: "Email Id",
                 textEditingController:
                     TeacherRegController.regTeacherControllerList[2],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Subject is required'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Subject",
                 textEditingController:
                     TeacherRegController.regTeacherControllerList[3],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Age is required'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Age",
                 textEditingController:
                     TeacherRegController.regTeacherControllerList[4],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(
+                      errorText: 'Teacher Experience is required'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Experience",
                 textEditingController:
                     TeacherRegController.regTeacherControllerList[5],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Gender is required'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Gender",
                 textEditingController:

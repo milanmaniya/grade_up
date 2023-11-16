@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_controller/student_post_controller/student_post_controller.dart';
 import 'package:grade_up/common_model/common_student_post_model.dart';
@@ -59,36 +60,55 @@ class _RegisterStudentPostScreenState extends State<RegisterStudentPostScreen> {
                 ),
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Student name is required'),
+                ]),
                 icon: Icons.person,
                 nameOfField: "Student Name",
                 textEditingController:
                     StudentRegController.regStudentControllerList[0],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Student name is required'),
+                  EmailValidator(errorText: 'This Email is not valid format.'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Class",
                 textEditingController:
                     StudentRegController.regStudentControllerList[1],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Weekly days is required'),
+                ]),
                 icon: Icons.phone_android,
                 nameOfField: "Weekly Days",
                 textEditingController:
                     StudentRegController.regStudentControllerList[2],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Subject is required'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Subject",
                 textEditingController:
                     StudentRegController.regStudentControllerList[3],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'message is required'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Message",
                 textEditingController:
                     StudentRegController.regStudentControllerList[4],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Student location is required'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Location",
                 textEditingController:

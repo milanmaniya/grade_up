@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_controller/register_controller/common_text_editing_controller.dart';
 import 'package:grade_up/common_widget/common_text_form_field.dart';
@@ -58,42 +59,71 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
                 ),
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'User Name is required'),
+                ]),
                 icon: Icons.person,
                 nameOfField: "User Name",
                 textEditingController: CommonRegController.regControllerList[0],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Student name is required'),
+                  RangeValidator(
+                      min: 10, max: 10, errorText: 'Range is not valid.'),
+                ]),
                 icon: Icons.phone_android,
                 nameOfField: "Mobile No.",
                 textEditingController: CommonRegController.regControllerList[1],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Student name is required'),
+                  EmailValidator(errorText: 'This Email is not valid.'),
+                ]),
                 icon: Icons.email,
                 nameOfField: "Email",
                 textEditingController: CommonRegController.regControllerList[2],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Age is required'),
+                ]),
                 icon: Icons.calendar_month_rounded,
                 nameOfField: "Age",
                 textEditingController: CommonRegController.regControllerList[3],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Gender is required'),
+                ]),
                 icon: Icons.person_2_rounded,
                 nameOfField: "Gender",
                 textEditingController: CommonRegController.regControllerList[4],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Address is required'),
+                ]),
                 icon: Icons.home,
                 nameOfField: "Address..",
                 textEditingController: CommonRegController.regControllerList[5],
               ),
               commonTextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: 'Student name is required'),
+                ]),
                 icon: Icons.lock,
                 nameOfField: "Password",
                 textEditingController: CommonRegController.regControllerList[6],
                 obscureText: true,
               ),
               commonTextFormField(
+                validator: (p0) =>
+                    MatchValidator(errorText: 'password does not match')
+                        .validateMatch(
+                            CommonRegController.regControllerList[6].text,
+                            CommonRegController.regControllerList[7].text),
                 icon: Icons.lock,
                 nameOfField: "Conform Password",
                 textEditingController: CommonRegController.regControllerList[7],
