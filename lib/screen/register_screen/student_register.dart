@@ -86,9 +86,11 @@ class _StudentRegisterScreenState extends State<StudentRegisterScreen> {
                 textEditingController: CommonRegController.regControllerList[2],
               ),
               commonTextFormField(
-                validator: MultiValidator([
-                  RequiredValidator(errorText: 'Age is required'),
-                ]),
+                validator: MultiValidator(
+                  [
+                    RequiredValidator(errorText: 'Age is required'),
+                  ],
+                ),
                 icon: Icons.calendar_month_rounded,
                 nameOfField: "Age",
                 textEditingController: CommonRegController.regControllerList[3],

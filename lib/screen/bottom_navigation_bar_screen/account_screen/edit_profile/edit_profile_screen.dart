@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grade_up/common_controller/register_controller/common_text_editing_controller.dart';
-import 'package:grade_up/common_widget/common_text_form_field.dart';
+
 import 'package:grade_up/common_widget/common_toast.dart';
 import 'package:grade_up/extension/media_query_extension.dart';
 import 'package:grade_up/firebase_api/firebase_api.dart';
@@ -59,48 +59,48 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                 ),
               ),
-              commonTextFormField(
-                icon: Icons.person,
-                nameOfField: "User Name",
-                textEditingController: CommonRegController.regControllerList[0],
-              ),
-              commonTextFormField(
-                icon: Icons.phone_android,
-                nameOfField: "Mobile No.",
-                textEditingController: CommonRegController.regControllerList[1],
-              ),
-              commonTextFormField(
-                icon: Icons.email,
-                nameOfField: "Email",
-                textEditingController: CommonRegController.regControllerList[2],
-              ),
-              commonTextFormField(
-                icon: Icons.calendar_month_rounded,
-                nameOfField: "Age",
-                textEditingController: CommonRegController.regControllerList[3],
-              ),
-              commonTextFormField(
-                icon: Icons.person_2_rounded,
-                nameOfField: "Gender",
-                textEditingController: CommonRegController.regControllerList[4],
-              ),
-              commonTextFormField(
-                icon: Icons.home,
-                nameOfField: "Address..",
-                textEditingController: CommonRegController.regControllerList[5],
-              ),
-              commonTextFormField(
-                icon: Icons.lock,
-                nameOfField: "Password",
-                textEditingController: CommonRegController.regControllerList[6],
-                obscureText: true,
-              ),
-              commonTextFormField(
-                icon: Icons.lock,
-                nameOfField: "Conform Password",
-                textEditingController: CommonRegController.regControllerList[7],
-                obscureText: true,
-              ),
+              // commonTextFormField(
+              //   icon: Icons.person,
+              //   nameOfField: "User Name",
+              //   textEditingController: CommonRegController.regControllerList[0],
+              // ),
+              // commonTextFormField(
+              //   icon: Icons.phone_android,
+              //   nameOfField: "Mobile No.",
+              //   textEditingController: CommonRegController.regControllerList[1],
+              // ),
+              // commonTextFormField(
+              //   icon: Icons.email,
+              //   nameOfField: "Email",
+              //   textEditingController: CommonRegController.regControllerList[2],
+              // ),
+              // commonTextFormField(
+              //   icon: Icons.calendar_month_rounded,
+              //   nameOfField: "Age",
+              //   textEditingController: CommonRegController.regControllerList[3],
+              // ),
+              // commonTextFormField(
+              //   icon: Icons.person_2_rounded,
+              //   nameOfField: "Gender",
+              //   textEditingController: CommonRegController.regControllerList[4],
+              // ),
+              // commonTextFormField(
+              //   icon: Icons.home,
+              //   nameOfField: "Address..",
+              //   textEditingController: CommonRegController.regControllerList[5], validator: (String? ) {  },
+              // ),
+              // commonTextFormField(
+              //   icon: Icons.lock,
+              //   nameOfField: "Password",
+              //   textEditingController: CommonRegController.regControllerList[6],
+              //   obscureText: true, validator: (String) {  },
+              // ),
+              // commonTextFormField(
+              //   icon: Icons.lock,
+              //   nameOfField: "Conform Password",
+              //   textEditingController: CommonRegController.regControllerList[7],
+              //   obscureText: true, validator: (String? ) {  },
+              // ),
               GestureDetector(
                 onTap: () async {
                   if (CommonRegController.key.currentState!.validate()) {
