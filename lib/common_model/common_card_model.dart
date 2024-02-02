@@ -1,9 +1,3 @@
-// CommonCardModel commonCardModelFromJson(String str) =>
-//     CommonCardModel.fromJson(json.decode(str));
-
-// String commonCardModelToJson(CommonCardModel data) =>
-//     json.encode(data.toJson());
-
 class CommonCardModel {
   String image;
   String subject;

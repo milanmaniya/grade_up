@@ -22,7 +22,7 @@ class ConstraintData {
       "We will send you an one time password \n on this given mobile number";
   static const String otpNotRecieve = "Didn't receive the otp?";
   static const String otpResend = "RESEND OTP";
-
+  
   static const String notHaveAccount = "Don't have an account?";
   static const String register = 'Register';
 }
