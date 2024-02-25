@@ -8,6 +8,7 @@ import 'package:grade_up/screen/bottom_navigation_bar_screen/home_screen/tab_bar
 import 'package:grade_up/utils/constraint_data.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
+
 class LanguageCourseScreen extends StatefulWidget {
   const LanguageCourseScreen({super.key, required this.index});
 
@@ -18,7 +19,7 @@ class LanguageCourseScreen extends StatefulWidget {
 }
 
 class _LanguageCourseScreenState extends State<LanguageCourseScreen> {
-  final Razorpay _razorpay = Razorpay();
+  final _razorpay = Razorpay();
 
   String paymentId = '';
 
