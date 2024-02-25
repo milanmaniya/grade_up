@@ -21,7 +21,6 @@ class OtpTextFieldScreen extends StatefulWidget {
 class _OtpTextFieldScreenState extends State<OtpTextFieldScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  final OtpFieldController _txtOtp = OtpFieldController();
 
   @override
   Widget build(BuildContext context) {
